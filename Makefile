@@ -6,11 +6,11 @@
 #    By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/05 16:45:20 by jkosaka           #+#    #+#              #
-#    Updated: 2022/02/05 16:47:20 by jkosaka          ###   ########.fr        #
+#    Updated: 2022/02/05 18:58:09 by jkosaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME := pipex
+NAME := fdf
 
 FDF_DIR := ./src
 
@@ -31,5 +31,12 @@ fclean :
 re : fclean all
 
 empty :
+
+test : fclean
+	make -C $(FDF_DIR)
+	./$(NAME) a.map
+
+fullclean :
+	make fullclean -C $(FDF_DIR)
 
 .PHONY: all clean fclean re bonus empty

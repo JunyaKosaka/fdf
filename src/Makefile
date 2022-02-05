@@ -6,13 +6,13 @@
 #    By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/05 16:47:09 by jkosaka           #+#    #+#              #
-#    Updated: 2022/02/05 17:24:30 by jkosaka          ###   ########.fr        #
+#    Updated: 2022/02/05 18:58:40 by jkosaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME := fdf
+NAME := ../fdf
 
-SRCS := fdf.c
+SRCS := fdf.c get_file_map.c
 
 OBJS := $(SRCS:%.c=%.o)
 
@@ -54,17 +54,20 @@ bonus : all
 clean :
 #make clean -C ../libft
 	make clean -C ../utils
-	make clean -C ../minilibx_macos
+#make clean -C ../minilibx_macos
 	$(RM) $(OBJS) $(MAND_OBJS) $(BNS_OBJS)
 
 fclean : clean
-	make fclean -C ../libft
+#fclean -C ../libft
 	make fclean -C ../utils
-	$(RM) $(NAME)
+	$(RM) $(NAME) $(LIBUTIL) $(MLX)
 
 re : fclean all
 
-test : fclean $(NAME) $(OBJS)
-	./fdf b.map
+fullclean :
+	make fclean -C ../libft
+	make fclean -C ../utils
+	make clean -C ../minilibx_macos
+	$(RM) $(NAME) $(LIBUTIL) $(MLX)
 
 PHONY : fclean clean all re test retest

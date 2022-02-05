@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/05 16:43:21 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/05 18:38:30 by jkosaka          ###   ########.fr       */
+/*   Created: 2022/02/05 18:25:31 by jkosaka           #+#    #+#             */
+/*   Updated: 2022/02/05 18:25:33 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#include "../includes/utils.h"
 
-# include "./utils.h"
+void	*free_one(char **s)
+{
+	if (s)
+	{
+		free(*s);
+		*s = NULL;
+	}
+	return (NULL);
+}
 
-void		fdf(char *filename);
-t_slist		*get_file_map(int fd);
-
-#endif  // FDF_H
+void	*free_two(char **s1, char **s2)
+{
+	free_one(s1);
+	free_one(s2);
+	return (NULL);
+}

@@ -6,7 +6,7 @@
 #    By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/05 16:52:55 by jkosaka           #+#    #+#              #
-#    Updated: 2022/02/05 17:10:20 by jkosaka          ###   ########.fr        #
+#    Updated: 2022/02/05 18:39:34 by jkosaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ NAME := libutil.a
 
 HEADERFILE := ../includes/utils.h
 
-SRCS := error_handler.c
+SRCS := error_handler.c get_next_line.c get_next_line_utils.c \
+	slist.c
 
 OBJS := $(SRCS:%.c=%.o)
 

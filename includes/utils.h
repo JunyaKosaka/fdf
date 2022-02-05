@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 16:28:28 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/05 17:01:21 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/05 18:51:40 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@
 # include <string.h>
 # include <unistd.h>
 # include <limits.h>
+# include <fcntl.h>
 # include <errno.h>
+# include "../minilibx_macos/mlx.h"
 # include "../libft/libft.h"
 
 # define STDERR 2
@@ -31,12 +33,12 @@
 #  define BUFFER_SIZE 256
 # endif
 
-/*  char list  */
-typedef struct s_clist
+/*  string list  */
+typedef struct s_slist
 {
 	char			*content;
-	struct s_clist	*next;
-}   t_clist;
+	struct s_slist	*next;
+}   t_slist;
 
 /*  vector components include color  */
 typedef struct s_vector
@@ -52,7 +54,7 @@ typedef struct	s_data {
     void	*img;
     char	*addr;
     int		bits_per_pixel;
-    int		line_length;
+    int		string_length;
     int		endian;
 }	t_data;
 
@@ -82,6 +84,14 @@ enum {
 	ON_DESTROY = 53,
 };
 
-int	error_handler(void);
+int		error_handler(void);
+char	*get_next_line(int fd);
+void	*free_one(char **s);
+void	*free_two(char **s1, char **s2);
+t_slist	*slist_new(char *content);
+void	slist_add_back(t_slist **lst, t_slist *new);
+t_slist	*slist_last(t_slist *lst);
+void	slist_clear(t_slist **lst);
+int		slist_size(t_slist *lst);
 
 #endif  // UTILS_H
