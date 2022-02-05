@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 18:23:39 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/05 18:52:33 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/06 00:53:08 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static char	*init_save(char *s)
 	return (s);
 }
 
-char	*get_next_line(int fd)
+char	*get_next_line(int fd, bool *is_ok)
 {
 	static char	*save[FD_MAX] = {NULL};
 	char		*buff;
@@ -74,6 +74,7 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || FD_MAX <= fd || BUFFER_SIZE <= 0)
 		return (NULL);
+	*is_ok = false;
 	buff = (char *)malloc(sizeof(char) * ((size_t)BUFFER_SIZE + 1));
 	if (!buff)
 		return (free_two(&save[fd], &buff));
@@ -89,6 +90,7 @@ char	*get_next_line(int fd)
 		if (!save[fd])
 			return (free_one(&buff));
 	}
+	*is_ok = true;
 	free_one(&buff);
 	return (get_one_line(save, fd, read_bytes));
 }

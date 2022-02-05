@@ -6,11 +6,18 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 17:04:02 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/05 18:38:57 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/06 01:22:34 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
+
+void    init_fdf(t_fdf *fdf)
+{
+    fdf->vecs = NULL;
+    fdf->shift_x = 0;
+    fdf->shift_y = 0;
+}
 
 void	fdf(char *filename)
 {
@@ -27,14 +34,16 @@ void	fdf(char *filename)
 	}
     fdf.mlx = mlx_init();
     fdf.win = mlx_new_window(fdf.mlx, 1000, 1000, " FDF ");
-
     file_map = get_file_map(fd);
-    // if (file_map == NULL)
+    if (!file_map)
+    {
+        error_handler();
+        exit(EXIT_FAILURE);
+    }
+    init_fdf(&fdf);
+    // elements = get_element(file_map);
+    // if (is_valid_file(elements) == false)
     //     return (error_handler());
-    // init_fdf(&fdf);
-    // // elements = get_element(file_map);
-    // // if (is_valid_file(elements) == false)
-    // //     return (error_handler());
     // fdf.vecs = get_vectors(file_map, &fdf);
     // get_map_size(&fdf, file_map);
     // fdf.vecs = change_center(fdf.vecs, fdf.map_row, fdf.map_col);

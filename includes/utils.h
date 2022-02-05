@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 16:28:28 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/05 18:51:40 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/06 01:17:33 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ enum {
 };
 
 int		error_handler(void);
-char	*get_next_line(int fd);
+char	*get_next_line(int fd, bool *is_ok);
 void	*free_one(char **s);
 void	*free_two(char **s1, char **s2);
 t_slist	*slist_new(char *content);
@@ -93,5 +93,8 @@ void	slist_add_back(t_slist **lst, t_slist *new);
 t_slist	*slist_last(t_slist *lst);
 void	slist_clear(t_slist **lst);
 int		slist_size(t_slist *lst);
+char	**fdf_split(char const *s, char c, int *column);
+int		hex_atoi(const char *str);
+
 
 #endif  // UTILS_H
