@@ -6,13 +6,14 @@
 #    By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/05 16:47:09 by jkosaka           #+#    #+#              #
-#    Updated: 2022/02/06 09:15:03 by jkosaka          ###   ########.fr        #
+#    Updated: 2022/02/06 10:43:31 by jkosaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := ../fdf
 
-SRCS := fdf.c get_file_map.c get_vectors.c free.c \
+SRCS := fdf.c get_file_map.c get_vectors.c free.c init_vectors.c \
+	update_vecs.c draw_map.c \
 
 OBJS := $(SRCS:%.c=%.o)
 

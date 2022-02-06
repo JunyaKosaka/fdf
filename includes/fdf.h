@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 16:43:21 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/06 09:13:30 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/06 11:09:14 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,13 @@
 
 # include "../minilibx_macos/mlx.h"
 # include "./utils.h"
+
+# define SHIFT_MOVE 60
+# define ARGC 2
+# define WIN_SIZE 1000
+# define WIN_CENTER 500
+# define SCALE_XY 20
+# define SCALE_Z 0.8
 
 /*  vector components include color  */
 typedef struct s_vector
@@ -30,7 +37,7 @@ typedef struct	s_data {
     void	*img;
     char	*addr;
     int		bits_per_pixel;
-    int		string_length;
+    int		line_length;
     int		endian;
 }	t_data;
 
@@ -66,6 +73,9 @@ t_vector    **get_vectors(t_slist *file_map, t_fdf *fdf);
 void	    get_map_size(t_fdf *fdf, t_slist *file_map);
 void		free_2d_arr(void **arr, int map_col);
 void		free_fdf(t_fdf *fdf, t_slist *file_map, bool is_error);
-
+void		init_vecs(t_fdf *fdf);
+void		rotate_horizontally(t_fdf *fdf, double radian);
+void	    draw_map(t_fdf *fdf);
+t_vector    get_internal_vector(t_vector start, t_vector end, double ratio);
 
 #endif  // FDF_H

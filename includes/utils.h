@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 16:28:28 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/06 09:13:36 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/06 10:39:43 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,13 @@
 # include <string.h>
 # include <unistd.h>
 # include <limits.h>
+# include <math.h>
 # include <fcntl.h>
 # include <errno.h>
 # include "../libft/libft.h"
 
 # define STDERR 2
 # define FD_MAX 256
-# define SHIFT_MOVE 60
-# define ARGC 2
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 256
