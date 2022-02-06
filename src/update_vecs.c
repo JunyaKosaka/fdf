@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 09:05:15 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/06 11:33:17 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/06 21:06:48 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,99 @@ void	rotate_horizontally(t_fdf *fdf, double radian)
 	}
 }
 
-// t_vector	rotate_around_y_ordinate(t_vector src, double radian)
+void	rotate_around_y_ordinate(t_fdf *fdf, double radian)
+{
+	int			row_i;
+	int			col_i;
+	t_vector	src;
+	t_vector	dest;
+
+	row_i = -1;
+	while (++row_i < fdf->map_row)
+	{
+		col_i = -1;
+		while (++col_i < fdf->map_col)
+		{
+			src = fdf->vecs[row_i][col_i];
+			dest.x = (src.x * cos(radian)) - (src.z * sin(radian));
+			dest.y = src.y;
+			dest.z = (src.x * sin(radian)) + (src.z * cos(radian));
+			dest.color = src.color;
+			fdf->vecs[row_i][col_i] = dest;
+		}
+	}
+}
+
+void	rotate_around_x_axis(t_fdf *fdf, double radian)
+{
+	int			row_i;
+	int			col_i;
+	t_vector	src;
+	t_vector	dest;
+
+	row_i = -1;
+	while (++row_i < fdf->map_row)
+	{
+		col_i = -1;
+		while (++col_i < fdf->map_col)
+		{
+			src = fdf->vecs[row_i][col_i];
+			dest.x = src.x;
+			dest.y = (src.y * cos(radian)) - (src.z * sin(radian));
+			dest.z = (src.y * sin(radian)) + (src.z * cos(radian));
+			dest.color = src.color;	
+			fdf->vecs[row_i][col_i] = dest;
+		}
+	}
+}
+
+// void	zoom_map(t_fdf *fdf, double ratio)
 // {
+// 	int			row_i;
+// 	int			col_i;
+// 	t_vector	src;
 // 	t_vector	dest;
 
-// 	dest.x = (src.x * cos(radian)) + (src.z * sin(radian));
-// 	dest.y = src.y;
-// 	dest.z = -(src.x * sin(radian)) + (src.z * cos(radian));
-// 	dest.color = src.color;
-// 	return (dest);
+// 	row_i = -1;
+// 	while (++row_i < fdf->map_row)
+// 	{
+// 		col_i = -1;
+// 		while (++col_i < fdf->map_col)
+// 		{
+// 			src = fdf->vecs[row_i][col_i];
+// 			dest.x = src.x;
+// 			dest.y = (src.y * cos(radian)) - (src.z * sin(radian));
+// 			dest.z = (src.y * sin(radian)) + (src.z * cos(radian));
+// 			dest.color = src.color;	
+// 			fdf->vecs[row_i][col_i] = dest;
+// 		}
+// 	}
+// }
+
+
+
+// void	gain_altitude(t_fdf *fdf, double altitude)
+// {
+// 	int			row_i;
+// 	int			col_i;
+// 	t_vector	src;
+// 	t_vector	dest;
+// 	t_vector	base;
+
+// 	row_i = -1;
+// 	while (++row_i < fdf->map_row)
+// 	{
+// 		col_i = -1;
+// 		while (++col_i < fdf->map_col)
+// 		{
+// 			src = fdf->vecs[row_i][col_i];
+// 			dest.x = src.x;
+// 			dest.y = (src.y * cos(radian)) - (src.z * sin(radian));
+// 			dest.z = (src.y * sin(radian)) + (src.z * cos(radian));
+// 			dest.color = src.color;	
+// 			fdf->vecs[row_i][col_i] = dest;
+// 		}
+// 	}
 // }
 
 // t_vector	rotate_around_x_axis(t_vector src, double radian)//  ここ

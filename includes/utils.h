@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 16:28:28 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/06 11:23:35 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/06 14:24:10 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ char	**fdf_split(char const *s, char c, int *column);
 int		hex_atoi(const char *str);
 char	**fdf_split(char const *s, char c, int *words);
 int		min(int x, int y);
-
+double	abs_double(double x);
+double	max_abs_3(double x, double y, double z);
 
 #endif  // UTILS_H

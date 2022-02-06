@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_vectors.c                                      :+:      :+:    :+:   */
+/*   get_vecs.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:11:22 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/06 11:15:30 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/06 14:02:27 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-t_vector    **get_vectors(t_slist *file_map, t_fdf *fdf)
+t_vector	**get_vectors(t_slist *file_map, t_fdf *fdf)
 {
-	t_vector	**vectors;
+	t_vector	**vecs;
     int			row;
-    int			column;
 	int			element_num;
     char		**one_line_element;
 	char		**one_pixel_element;
@@ -24,43 +23,40 @@ t_vector    **get_vectors(t_slist *file_map, t_fdf *fdf)
     int			col_i;
 
     row = slist_size(file_map);
-    vectors = (t_vector **)malloc(sizeof(t_vector *) * (row + 1));
-    if (!vectors)
+    vecs = (t_vector **)malloc(sizeof(t_vector *) * (row + 1));
+    if (!vecs)
         free_fdf(fdf, file_map, true);
-    vectors[row] = NULL;
-    row_i = 0;
-    while (file_map)
+    vecs[row] = NULL;
+    row_i = -1;
+    while (++row_i < fdf->map_row)
     {
-        one_line_element = fdf_split(file_map->content, ' ', &column);
-        vectors[row_i] = (t_vector *)malloc(sizeof(t_vector) * column);
-        if (one_line_element == NULL || vectors[row_i] == NULL)
+        one_line_element = ft_split(file_map->content, ' ');
+        vecs[row_i] = (t_vector *)malloc(sizeof(t_vector) * fdf->map_col);
+        if (one_line_element == NULL || vecs[row_i] == NULL)
             free_fdf(fdf, file_map, true);
-		col_i = 0;
-        while(col_i < column)
+		col_i = -1;
+        while(++col_i < fdf->map_col)
         {
-			vectors[row_i][col_i].x = col_i;
-			vectors[row_i][col_i].y = row_i;
+			vecs[row_i][col_i].x = col_i;
+			vecs[row_i][col_i].y = row_i;
 			one_pixel_element = fdf_split(one_line_element[col_i], ',', &element_num);
             if (one_pixel_element == NULL)
-                free_fdf(fdf, file_map, true); 
-            vectors[row_i][col_i].z = ft_atoi(one_pixel_element[0]);
-			vectors[row_i][col_i].color = 0xffffff;
+                free_fdf(fdf, file_map, true);
+			// printf("%s\n", one_pixel_element[0]);
+            vecs[row_i][col_i].z = ft_atoi(one_pixel_element[0]);
+			// 書き換える
+			vecs[row_i][col_i].color = 0xffffff;
 			if (element_num == 2)
 			{
-				vectors[row_i][col_i].color = hex_atoi(one_pixel_element[1]);
-				if (vectors[row_i][col_i].color == -1)
+				vecs[row_i][col_i].color = hex_atoi(one_pixel_element[1]);
+				if (vecs[row_i][col_i].color == -1)
 					exit(1);
 				//free関数を上に適用
 			}
 			free_2d_arr((void **)one_pixel_element, -1);
-	        // printf("%d, %d | ", vectors[row_i][col_i].z, vectors[row_i][col_i].color);
-            col_i++;
         }
-        // printf("\n");
 		free_2d_arr((void **)one_line_element, -1);
         file_map = file_map->next;
-        row_i++;
     }
-    return (vectors);
+	return (vecs);
 }
-

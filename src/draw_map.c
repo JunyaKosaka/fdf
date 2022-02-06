@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 10:32:44 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/06 11:37:05 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/06 23:04:39 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,18 +52,18 @@ static bool draw_dot(t_vector vec, t_data *img, t_fdf *fdf)
 static void draw_line(t_data *img, t_vector start, t_vector end, t_fdf *fdf)
 {
     double  ratio;
+    double  diff;
     t_vector target;
 
     if (!draw_dot(start, img, fdf) || !draw_dot(end, img, fdf))
         return ;
+    diff = max_abs_3(end.x - start.x, end.y - start.y, end.z - start.z);
     ratio = 0;
     while (ratio <= 1)
     {
         target = get_internal_vector(start, end, ratio);
-        // target = rotate_vector(target, fdf->radian);
-        // targetを回転   回転行列
         draw_dot(target, img, fdf);
-        ratio += DELTA_RATIO;
+        ratio += (double)DELTA_RATIO / diff;
     }
 }
 
@@ -91,7 +91,8 @@ void    draw_map(t_fdf *fdf)
         }
     }
     mlx_put_image_to_window(fdf->mlx, fdf->win, img.img, 0, 0);
-    // mlx_key_hook(fdf->win, key_hook, fdf);
+    mlx_string_put(fdf->mlx, fdf->win, 500, 900, 0xEEAAAA, "fdf");
+    mlx_key_hook(fdf->win, key_hook, fdf);
     // mlx_mouse_hook(fdf->win, mouse_hook, fdf);
 	mlx_loop(fdf->mlx);
 }

@@ -6,7 +6,7 @@
 #    By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/05 16:45:20 by jkosaka           #+#    #+#              #
-#    Updated: 2022/02/05 18:58:09 by jkosaka          ###   ########.fr        #
+#    Updated: 2022/02/06 18:28:29 by jkosaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,14 @@ empty :
 test : fclean
 	make -C $(FDF_DIR)
 	./$(NAME) a.map
+
+test2 : fclean
+	make -C $(FDF_DIR)
+	./$(NAME) julia.fdf
+
+test3 : fclean
+	make -C $(FDF_DIR)
+	./$(NAME) ./test_maps/pyramide.fdf
 
 fullclean :
 	make fullclean -C $(FDF_DIR)
