@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 22:59:56 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/10/19 15:02:31 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/06 08:33:41 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static char	**rec(char **container, char const *s, char c, size_t ind)
 	return (container);
 }
 
-static size_t	word_count(char const *s, char c)
+static size_t	count_words(char const *s, char c)
 {
 	size_t	ret;
 
@@ -57,7 +57,7 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	words = word_count(s, c);
+	words = count_words(s, c);
 	ret = (char **)malloc(sizeof(char *) * (words + 1));
 	if (!ret)
 		return (NULL);

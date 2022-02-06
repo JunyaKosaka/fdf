@@ -6,13 +6,13 @@
 #    By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/05 16:47:09 by jkosaka           #+#    #+#              #
-#    Updated: 2022/02/05 18:58:40 by jkosaka          ###   ########.fr        #
+#    Updated: 2022/02/06 09:15:03 by jkosaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := ../fdf
 
-SRCS := fdf.c get_file_map.c
+SRCS := fdf.c get_file_map.c get_vectors.c free.c \
 
 OBJS := $(SRCS:%.c=%.o)
 
@@ -64,7 +64,7 @@ fclean : clean
 
 re : fclean all
 
-fullclean :
+fullclean : clean
 	make fclean -C ../libft
 	make fclean -C ../utils
 	make clean -C ../minilibx_macos

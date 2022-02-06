@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 18:21:02 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/06 01:05:56 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/06 08:34:50 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,12 @@ void    show_file_map(t_slist *map) // delete
 		printf("%s", map->content);
 		map = map->next;
 	}
+}
+
+void    get_map_size(t_fdf *fdf, t_slist *file_map)
+{
+    fdf->map_row = slist_size(file_map);
+	fdf->map_col = count_words(file_map->content, ' ');
 }
 
 t_slist		*get_file_map(int fd)
