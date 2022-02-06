@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 09:34:32 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/06 11:11:12 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/06 11:34:07 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,18 @@ static void	scale_up(t_fdf *fdf)
 {
     int 	row_i;
     int 	col_i;
+	double	divide;
 
+	divide = min(fdf->map_row, fdf->map_col);
     row_i = -1;
     while (++row_i < fdf->map_row)
     {
         col_i = -1;
         while (++col_i < fdf->map_col)
         {
-			fdf->vecs[row_i][col_i].x *= SCALE_XY;
-			fdf->vecs[row_i][col_i].y *= SCALE_XY;
-			fdf->vecs[row_i][col_i].z *= SCALE_Z;
+			fdf->vecs[row_i][col_i].x *= (double)SCALE_XY / divide;
+			fdf->vecs[row_i][col_i].y *= (double)SCALE_XY / divide;
+			fdf->vecs[row_i][col_i].z *= (double)SCALE_Z;
         }
     }
 }

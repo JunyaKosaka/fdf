@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 16:28:28 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/06 10:39:43 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/06 11:23:35 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,7 @@ size_t	count_words(char const *s, char c);
 char	**fdf_split(char const *s, char c, int *column);
 int		hex_atoi(const char *str);
 char	**fdf_split(char const *s, char c, int *words);
+int		min(int x, int y);
+
 
 #endif  // UTILS_H

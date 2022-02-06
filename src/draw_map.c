@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 10:32:44 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/06 11:11:03 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/06 11:37:05 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static void draw_line(t_data *img, t_vector start, t_vector end, t_fdf *fdf)
         // target = rotate_vector(target, fdf->radian);
         // targetを回転   回転行列
         draw_dot(target, img, fdf);
-        ratio += 0.01;
+        ratio += DELTA_RATIO;
     }
 }
 

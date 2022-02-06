@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 16:43:21 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/06 11:09:14 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/06 11:37:00 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@
 # define ARGC 2
 # define WIN_SIZE 1000
 # define WIN_CENTER 500
-# define SCALE_XY 20
+# define SCALE_XY 300
 # define SCALE_Z 0.8
+# define DELTA_RATIO 0.01
 
 /*  vector components include color  */
 typedef struct s_vector

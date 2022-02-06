@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 09:05:15 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/06 10:31:34 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/06 11:33:17 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	rotate_horizontally(t_fdf *fdf, double radian)
 {
 	int			row_i;
 	int			col_i;
-	t_vector	src_vec;
-	t_vector	dest_vec;
+	t_vector	src;
+	t_vector	dest;
 
 	row_i = -1;
 	while (++row_i < fdf->map_row)
@@ -25,48 +25,48 @@ void	rotate_horizontally(t_fdf *fdf, double radian)
 		col_i = -1;
 		while (++col_i < fdf->map_col)
 		{
-			src_vec = fdf->vecs[row_i][col_i];
-			dest_vec.x = (src_vec.x * cos(radian)) - (src_vec.y * sin(radian));
-			dest_vec.y = (src_vec.x * sin(radian)) + (src_vec.y * cos(radian));
-			dest_vec.z = src_vec.z;
-			dest_vec.color = src_vec.color;	
-			fdf->vecs[row_i][col_i] = dest_vec;
+			src = fdf->vecs[row_i][col_i];
+			dest.x = (src.x * cos(radian)) - (src.y * sin(radian));
+			dest.y = (src.x * sin(radian)) + (src.y * cos(radian));
+			dest.z = src.z;
+			dest.color = src.color;	
+			fdf->vecs[row_i][col_i] = dest;
 		}
 	}
 }
 
-// t_vector	rotate_around_y_ordinate(t_vector src_vec, double radian)
+// t_vector	rotate_around_y_ordinate(t_vector src, double radian)
 // {
-// 	t_vector	dest_vec;
+// 	t_vector	dest;
 
-// 	dest_vec.x = (src_vec.x * cos(radian)) + (src_vec.z * sin(radian));
-// 	dest_vec.y = src_vec.y;
-// 	dest_vec.z = -(src_vec.x * sin(radian)) + (src_vec.z * cos(radian));
-// 	dest_vec.color = src_vec.color;
-// 	return (dest_vec);
+// 	dest.x = (src.x * cos(radian)) + (src.z * sin(radian));
+// 	dest.y = src.y;
+// 	dest.z = -(src.x * sin(radian)) + (src.z * cos(radian));
+// 	dest.color = src.color;
+// 	return (dest);
 // }
 
-// t_vector	rotate_around_x_axis(t_vector src_vec, double radian)//  ここ
+// t_vector	rotate_around_x_axis(t_vector src, double radian)//  ここ
 // {
-// 	t_vector	dest_vec;
+// 	t_vector	dest;
 
-// 	dest_vec.x = src_vec.x;
-// 	dest_vec.y = (src_vec.y * cos(radian)) - (src_vec.z * sin(radian));
-// 	dest_vec.z = (src_vec.y * sin(radian)) + (src_vec.z * cos(radian));
-// 	dest_vec.color = src_vec.color;
-// 	return (dest_vec);
+// 	dest.x = src.x;
+// 	dest.y = (src.y * cos(radian)) - (src.z * sin(radian));
+// 	dest.z = (src.y * sin(radian)) + (src.z * cos(radian));
+// 	dest.color = src.color;
+// 	return (dest);
 // }
 
-// t_vector	rotate_vector(t_vector src_vec, t_fdf *fdf)
+// t_vector	rotate_vector(t_vector src, t_fdf *fdf)
 // {
-//     t_vector    dest_vec;
+//     t_vector    dest;
 //     t_vector    temp_vec;
 
-//     dest_vec = src_vec;
-//     // temp_vec = rotate_horizontally(src_vec, fdf->radian_xy);
-//     temp_vec = rotate_around_y_ordinate(src_vec, fdf->radian_zx);
+//     dest = src;
+//     // temp_vec = rotate_horizontally(src, fdf->radian_xy);
+//     temp_vec = rotate_around_y_ordinate(src, fdf->radian_zx);
 //     temp_vec = rotate_around_x_axis(temp_vec, fdf->radian_yz);
-//     dest_vec.x = temp_vec.x;
-//     dest_vec.y = temp_vec.y;
-//     return (dest_vec);
+//     dest.x = temp_vec.x;
+//     dest.y = temp_vec.y;
+//     return (dest);
 // }
