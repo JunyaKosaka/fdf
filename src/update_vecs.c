@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 09:05:15 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/08 01:27:53 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/08 01:48:06 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,12 @@
 void	zoom(t_vector *vec, t_vector origin, double coef)
 {
 	t_vector	src;
-	t_vector	dest;	
+	t_vector	dest;
 
 	src = *vec;
-	src.x -= origin.x;
-	src.y -= origin.y;
 	dest.x = src.x * coef;
 	dest.y = src.y * coef;
 	dest.z = src.z * coef;
-	dest.x += origin.x;
-	dest.y += origin.y;
 	dest.color = src.color;
 	*vec = dest;
 }
