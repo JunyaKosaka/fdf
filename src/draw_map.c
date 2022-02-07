@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 10:32:44 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/07 15:33:57 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/07 16:56:41 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 	*(unsigned int *)dst = color;
 }
 
-/*  draw dot on minilibx window  */
+/*  draw dot on minilibx image. return true if can draw  */
 static bool	draw_dot(t_vector vec, t_data *img, t_fdf *fdf)
 {
 	int	mlx_x;
 	int	mlx_y;
 
-	mlx_x = vec.x + WIN_CENTER + fdf->shift_x;
-	mlx_y = vec.y + WIN_CENTER + fdf->shift_y;
+	mlx_x = vec.x + WIN_CENTER;
+	mlx_y = vec.y + WIN_CENTER;
 	if (mlx_x <= 0 || WIN_SIZE <= mlx_x)
 		return (false);
 	if (mlx_y <= 0 || WIN_SIZE <= mlx_y)

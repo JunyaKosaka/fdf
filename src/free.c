@@ -6,28 +6,28 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:20:30 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/07 14:49:20 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/07 20:17:38 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-void	free_2d_arr(void **arr, int map_col)
+void	free_2d_arr(void **arr, int limit)
 {
 	int	i;
 
 	if (!arr)
 		return ;
-	if (map_col == -1)
-		map_col = INT_MAX;
-	i = 0;
-	while (arr[i] && i < map_col)
+	if (limit == -1)
+		limit = INT_MAX;
+	i = -1;
+	while (arr[++i] && i < limit)
 	{
 		free(arr[i]);
 		arr[i] = NULL;
-		i++;
 	}
 	free(arr);
+	arr = NULL;
 }
 
 void	free_fdf(t_fdf *fdf, t_slist *file_map, bool is_error)
