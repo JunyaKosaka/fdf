@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 15:14:49 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/08 01:04:35 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/08 01:25:45 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,6 @@ typedef struct s_fdf {
 	void		*win;
 	int			map_row;
 	int			map_col;
-	// double		origin_x;
-	// double		origin_y;
 }	t_fdf;
 
 /*  keyboard and mouse move  */
@@ -103,5 +101,9 @@ void		zoom(t_vector *vec, t_vector origin, double coef);
 void		shift_x(t_vector *vec, t_vector origin, double move);
 void		shift_y(t_vector *vec, t_vector origin, double move);
 void		raise_altitude(t_fdf *fdf, double altitude);
+t_vector	extend_vec(t_vector vec, double ratio);
+t_vector	sum_vec(t_vector a, t_vector b);
+t_vector	diff_vec(t_vector a, t_vector b);
+void		show_vec(t_vector vec); // delete
 
 #endif  // FDF_H

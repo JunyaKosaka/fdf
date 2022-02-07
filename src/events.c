@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 15:47:42 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/08 01:03:43 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/08 01:22:29 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ int	key_hook(int keycode, t_fdf *fdf)
 		raise_altitude(fdf, ALTITUDE_RATE);
 	if (keycode == ON_KEYV)
 		raise_altitude(fdf, 1 / ALTITUDE_RATE);
-	
 	// printf("%.2f %.2f\n", fdf->origin.x, fdf->origin.y);
 	draw_map(fdf);
 	return (0);
