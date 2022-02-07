@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 10:32:44 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/07 14:47:41 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/07 15:33:57 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,44 +14,24 @@
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
-    char    *dst;
+	char	*dst;
 
-    dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-    *(unsigned int*)dst = color;
-}
-
-/*  ratio : 1 - ratio  */
-t_vector	get_internal_vector(t_vector start, t_vector end, double ratio)
-{
-	t_vector	target;
-	double		s;
-	double		t;
-	int			color;
-
-	s = 1 - ratio;
-	t = ratio;
-	target.x = s * start.x + t * end.x;
-	target.y = s * start.y + t * end.y;
-	target.z = s * start.z + t * end.z;
-	color = (int)(s * (start.color & RED) + t * (end.color & RED)) & RED;
-	color += (int)(s * (start.color & GREEN) + t * (end.color & GREEN)) & GREEN;
-	color += (int)(s * (start.color & BLUE) + t * (end.color & BLUE)) & BLUE;
-	target.color = color;
-	return (target);
+	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
+	*(unsigned int *)dst = color;
 }
 
 /*  draw dot on minilibx window  */
-static bool draw_dot(t_vector vec, t_data *img, t_fdf *fdf)
+static bool	draw_dot(t_vector vec, t_data *img, t_fdf *fdf)
 {
 	int	mlx_x;
 	int	mlx_y;
 
 	mlx_x = vec.x + WIN_CENTER + fdf->shift_x;
 	mlx_y = vec.y + WIN_CENTER + fdf->shift_y;
-    if (mlx_x <= 0 || WIN_SIZE <= mlx_x)
-        return (false);
-    if (mlx_y <= 0 || WIN_SIZE <= mlx_y)
-        return (false);
+	if (mlx_x <= 0 || WIN_SIZE <= mlx_x)
+		return (false);
+	if (mlx_y <= 0 || WIN_SIZE <= mlx_y)
+		return (false);
 	my_mlx_pixel_put(img, mlx_x, mlx_y, vec.color);
 	return (true);
 }
@@ -75,6 +55,17 @@ static void	draw_line(t_data *img, t_vector start, t_vector end, t_fdf *fdf)
 	}
 }
 
+void	draw_two_lines(t_fdf *fdf, t_data *img, int row_i, int col_i)
+{
+	t_vector	vec;
+
+	vec = fdf->vecs[row_i][col_i];
+	if (row_i)
+		draw_line(img, vec, fdf->vecs[row_i - 1][col_i], fdf);
+	if (col_i)
+		draw_line(img, vec, fdf->vecs[row_i][col_i - 1], fdf);
+}
+
 /*  draw whole map  */
 void	draw_map(t_fdf *fdf)
 {
@@ -91,13 +82,7 @@ void	draw_map(t_fdf *fdf)
 	{
 		col_i = -1;
 		while (++col_i < fdf->map_col)
-		{
-			vec = fdf->vecs[row_i][col_i];
-			if (row_i)
-				draw_line(&img, vec, fdf->vecs[row_i - 1][col_i], fdf);
-			if (col_i)
-				draw_line(&img, vec, fdf->vecs[row_i][col_i - 1], fdf);
-		}
+			draw_two_lines(fdf, &img, row_i, col_i);
 	}
 	mlx_put_image_to_window(fdf->mlx, fdf->win, img.img, 0, 0);
 	mlx_string_put(fdf->mlx, fdf->win, 200, 900, 0xEEAAAA, "Zoom in  : +");

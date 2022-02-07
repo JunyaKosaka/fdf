@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 16:28:28 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/06 14:24:10 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/07 15:16:06 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef struct s_slist
 {
 	char			*content;
 	struct s_slist	*next;
-}   t_slist;
+}	t_slist;
 
 int		error_handler(void);
 char	*get_next_line(int fd, bool *is_ok);

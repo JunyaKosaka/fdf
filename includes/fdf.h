@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/05 16:43:21 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/07 14:18:58 by jkosaka          ###   ########.fr       */
+/*   Created: 2022/02/07 15:14:49 by jkosaka           #+#    #+#             */
+/*   Updated: 2022/02/07 15:31:51 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,26 +28,27 @@
 # define RED 0xFF0000
 # define GREEN 0x00FF00
 # define BLUE 0x0000FF
+
 /*  vector components include color  */
 typedef struct s_vector
 {
-    double	x;
-    double	y;
-    double	z;
+	double	x;
+	double	y;
+	double	z;
 	int		color;
 }	t_vector;
 
 /*  minilibx image data  */
-typedef struct	s_data {
-    void	*img;
-    char	*addr;
-    int		bits_per_pixel;
-    int		line_length;
-    int		endian;
+typedef struct s_data {
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
 }	t_data;
 
 /*  fdf information  */
-typedef struct	s_fdf {
+typedef struct s_fdf {
 	t_vector	**vecs;
 	t_vector	**flats;
 	void		*mlx;
@@ -72,7 +73,6 @@ enum {
 	ON_KEYL = 37,
 	ON_KEYPLUS = 24,
 	ON_KEYMINUS = 27,
-	
 	ON_MOUSEDOWN = 4,
 	ON_MOUSEUP = 5,
 	ON_MOUSEMOVE = 6,
@@ -83,18 +83,19 @@ enum {
 void		fdf(char *filename);
 t_slist		*get_file_map(int fd);
 t_vector	**get_vectors(t_slist *file_map, t_fdf *fdf);
-void	    get_map_size(t_fdf *fdf, t_slist *file_map);
+void		get_map_size(t_fdf *fdf, t_slist *file_map);
 void		free_2d_arr(void **arr, int map_col);
 void		free_fdf(t_fdf *fdf, t_slist *file_map, bool is_error);
 void		init_vecs(t_fdf *fdf);
 void		rotate_horizontally(t_fdf *fdf, double radian);
 void		rotate_around_y_ordinate(t_fdf *fdf, double radian);
 void		rotate_around_x_axis(t_vector *vec, double radian);
-void	    draw_map(t_fdf *fdf);
-t_vector    get_internal_vector(t_vector start, t_vector end, double ratio);
+void		draw_map(t_fdf *fdf);
+t_vector	get_internal_vector(t_vector start, t_vector end, double ratio);
 int			key_hook(int keycode, t_fdf *fdf);
 // void		zoom_map(t_fdf *fdf, double coef);
-void		update_vecs(t_fdf *fdf, void (*func)(t_vector *, double), double arg);
+void		update_vecs(t_fdf *fdf, void (*func)(t_vector *, double), \
+						double arg);
 void		zoom(t_vector *vec, double coef);
 
 #endif  // FDF_H
