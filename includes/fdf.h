@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 16:43:21 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/07 10:32:24 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/07 14:18:58 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@
 # define SCALE_Z 0.8
 # define ROTATE_RATE 10
 # define DELTA_RATIO 0.2
-
+# define RED 0xFF0000
+# define GREEN 0x00FF00
+# define BLUE 0x0000FF
 /*  vector components include color  */
 typedef struct s_vector
 {

@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 09:05:15 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/07 10:27:52 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/07 10:48:46 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ void	zoom(t_vector *vec, double coef)
 	*vec = dest;
 }
 
-void	update_vecs(t_fdf *fdf, void (*func)(t_vector *, double), double arg)
+void	update_vecs(t_fdf *fdf, void (*matrix)(t_vector *, double), double ratio)
 {
 	int			row_i;
 	int			col_i;
@@ -119,7 +119,7 @@ void	update_vecs(t_fdf *fdf, void (*func)(t_vector *, double), double arg)
 		col_i = -1;
 		while (++col_i < fdf->map_col)
 		{
-			func(&fdf->vecs[row_i][col_i], arg);
+			matrix(&fdf->vecs[row_i][col_i], ratio);
 		}
 	}	
 }

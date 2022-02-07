@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 15:47:42 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/07 10:32:37 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/07 14:11:41 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ int	key_hook(int keycode, t_fdf *fdf)
 	if (keycode == ON_KEYLEFT)
 		rotate_around_y_ordinate(fdf, M_PI / ROTATE_RATE);
 	if (keycode == ON_KEYH)
-		fdf->shift_x -= SHIFT_MOVE;
-	if (keycode == ON_KEYJ)
-		fdf->shift_y += SHIFT_MOVE;
-	if (keycode == ON_KEYK)
-		fdf->shift_y -= SHIFT_MOVE;
-	if (keycode == ON_KEYL)
 		fdf->shift_x += SHIFT_MOVE;
+	if (keycode == ON_KEYJ)
+		fdf->shift_y -= SHIFT_MOVE;
+	if (keycode == ON_KEYK)
+		fdf->shift_y += SHIFT_MOVE;
+	if (keycode == ON_KEYL)
+		fdf->shift_x -= SHIFT_MOVE;
 	if (keycode == ON_KEYPLUS)
 		update_vecs(fdf, zoom, 1.3);
 		// zoom_map(fdf, 1.3);

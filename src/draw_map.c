@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 10:32:44 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/06 23:48:44 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/07 14:35:04 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,17 @@ void    my_mlx_pixel_put(t_data *data, int x, int y, int color)
 t_vector    get_internal_vector(t_vector start, t_vector end, double ratio)
 {
     t_vector    target;
+    double      s;
+    double      t;
 
-    target.x = start.x + (end.x - start.x) * ratio;
-    target.y = start.y + (end.y - start.y) * ratio;
-    target.z = start.z + (end.z - start.z) * ratio;
-    target.color = start.color + (end.color - start.color) * ratio;
+    s = 1 - ratio;
+    t = ratio;
+    target.x = s * start.x + t * end.x;
+    target.y = s * start.y + t * end.y;
+    target.z = s * start.z + t * end.z;
+    target.color = (int)(s * (start.color & RED) + t * (end.color & RED)) & RED;
+    target.color += (int)(s * (start.color & GREEN) + t * (end.color & GREEN)) & GREEN;
+    target.color += (int)(s * (start.color & BLUE) + t * (end.color & BLUE)) & BLUE;
     return (target);
 }
 
@@ -55,7 +61,7 @@ static void draw_line(t_data *img, t_vector start, t_vector end, t_fdf *fdf)
     double  diff;
     t_vector target;
 
-    if (!draw_dot(start, img, fdf) || !draw_dot(end, img, fdf))
+    if (!draw_dot(start, img, fdf) && !draw_dot(end, img, fdf))
         return ;
     diff = max_abs_3(end.x - start.x, end.y - start.y, end.z - start.z);
     ratio = 0;
