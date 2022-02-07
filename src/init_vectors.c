@@ -57,7 +57,6 @@ void	init_vecs(t_fdf *fdf)
 {
 	change_center(fdf);
 	scale_up(fdf);
-	rotate_horizontally(fdf, M_PI / 4);
+	update_vecs(fdf, rotate_horizontally, M_PI / 4);
 	update_vecs(fdf, rotate_around_x_axis, acos((double)1 / sqrt(5)));
-	// rotate_around_x_axis(fdf, );
 }

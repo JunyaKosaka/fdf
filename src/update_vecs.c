@@ -6,36 +6,46 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 09:05:15 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/07 20:23:30 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/07 20:25:17 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-void	rotate_horizontally(t_fdf *fdf, double radian)
-{
-	int			row_i;
-	int			col_i;
-	t_vector	src;
-	t_vector	dest;
+// void	rotate_horizontally(t_fdf *fdf, double radian)
+// {
+// 	int			row_i;
+// 	int			col_i;
+// 	t_vector	src;
+// 	t_vector	dest;
 
-	row_i = -1;
-	while (++row_i < fdf->map_row)
-	{
-		col_i = -1;
-		while (++col_i < fdf->map_col)
-		{
-			src = fdf->vecs[row_i][col_i];
-			dest.x = (src.x * cos(radian)) - (src.y * sin(radian));
-			dest.y = (src.x * sin(radian)) + (src.y * cos(radian));
-			dest.z = src.z;
-			dest.color = src.color;
-			fdf->vecs[row_i][col_i] = dest;
-		}
-	}
+// 	row_i = -1;
+// 	while (++row_i < fdf->map_row)
+// 	{
+// 		col_i = -1;
+// 		while (++col_i < fdf->map_col)
+// 		{
+// 			src = fdf->vecs[row_i][col_i];
+// 			dest.color = src.color;
+// 			fdf->vecs[row_i][col_i] = dest;
+// 		}
+// 	}
+// }
+
+void	rotate_horizontally(t_vector *vec, double radian)
+{
+	t_vector	src;
+	t_vector	dest;	
+
+	src = *vec;
+	dest.x = (src.x * cos(radian)) - (src.y * sin(radian));
+	dest.y = (src.x * sin(radian)) + (src.y * cos(radian));
+	dest.z = src.z;
+	dest.color = src.color;
+	*vec = dest;
 }
 
-void	rotate_around_y_ordinate(t_vector *vec, double radian)	
+void	rotate_around_y_ordinate(t_vector *vec, double radian)
 {
 	t_vector	src;
 	t_vector	dest;	
