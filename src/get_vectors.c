@@ -6,27 +6,52 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 14:54:50 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/07 14:56:18 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/08 01:02:27 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-t_vector	**get_vectors(t_slist *file_map, t_fdf *fdf)
+t_vector	**get_flats(t_fdf *fdf)
+{
+	t_vector	**flats;
+	int			row_i;
+	int			col_i;
+
+	flats = (t_vector **)malloc(sizeof(t_vector *) * fdf->map_row);
+	if (!flats)
+		free_fdf(fdf, NULL, true);
+	row_i = -1;
+	while (++row_i < fdf->map_row)
+	{
+		flats[row_i] = (t_vector *)malloc(sizeof(t_vector) * fdf->map_col);
+		if (!flats[row_i])
+		{
+			free_2d_arr((void **)flats, fdf->map_row);
+			free_fdf(fdf, NULL, true);
+		}
+		col_i = -1;
+		while (++col_i < fdf->map_col)
+		{
+			flats[row_i][col_i] = fdf->vecs[row_i][col_i];
+			flats[row_i][col_i].z = 0;
+		}
+	}
+	return (flats);
+}
+
+t_vector	**get_vectors(t_fdf *fdf, t_slist *file_map)
 {
 	t_vector	**vecs;
-	int			row;
 	int			element_num;
 	char		**one_line_element;
 	char		**one_pixel_element;
 	int			row_i;
 	int			col_i;
 
-	row = slist_size(file_map);
-	vecs = (t_vector **)malloc(sizeof(t_vector *) * (row + 1));
+	vecs = (t_vector **)malloc(sizeof(t_vector *) * fdf->map_row);
 	if (!vecs)
 		free_fdf(fdf, file_map, true);
-	vecs[row] = NULL;
 	row_i = -1;
 	while (++row_i < fdf->map_row)
 	{

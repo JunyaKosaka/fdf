@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 14:48:41 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/07 20:29:29 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/08 01:19:22 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,10 @@ void	fdf(char *filename)
 	// if (is_valid_file(elements) == false)
 	//	 return (error_handler());
 	get_map_size(&fdf, file_map);
-	fdf.vecs = get_vectors(file_map, &fdf);
-	init_vecs(&fdf);
+	fdf.vecs = get_vectors(&fdf, file_map);
+	// fdf.flats = get_flats(&fdf, file_map);
 	slist_clear(&file_map);
+	init_vecs(&fdf);
 	draw_map(&fdf);
 
 	// system("leaks fdf");

@@ -6,7 +6,7 @@
 #    By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/05 16:47:09 by jkosaka           #+#    #+#              #
-#    Updated: 2022/02/07 15:34:28 by jkosaka          ###   ########.fr        #
+#    Updated: 2022/02/08 00:07:55 by jkosaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,13 +54,13 @@ bonus : all
 
 clean :
 #make clean -C ../libft
-	make clean -C ../utils
+#make clean -C ../utils
 #make clean -C ../minilibx_macos
 	$(RM) $(OBJS) $(MAND_OBJS) $(BNS_OBJS)
 
 fclean : clean
 #fclean -C ../libft
-	make fclean -C ../utils
+#make fclean -C ../utils
 	$(RM) $(NAME) $(LIBUTIL) $(MLX)
 
 re : fclean all

@@ -12,7 +12,7 @@
 
 #include "../includes/fdf.h"
 
-static void	**change_center(t_fdf *fdf)
+static void	change_center(t_fdf *fdf)
 {
 	int		row_i;
 	int		col_i;
@@ -57,6 +57,7 @@ void	init_vecs(t_fdf *fdf)
 {
 	change_center(fdf);
 	scale_up(fdf);
+	fdf->flats = get_flats(fdf);
 	update_vecs(fdf, rotate_horizontally, M_PI / 4);
 	update_vecs(fdf, rotate_around_x_axis, acos((double)1 / sqrt(5)));
 }
