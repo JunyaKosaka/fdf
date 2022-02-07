@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 16:43:21 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/06 21:21:07 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/07 10:32:24 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # define SCALE_XY 300
 # define XY_BASE 5
 # define SCALE_Z 0.8
+# define ROTATE_RATE 10
 # define DELTA_RATIO 0.2
 
 /*  vector components include color  */
@@ -46,6 +47,7 @@ typedef struct	s_data {
 /*  fdf information  */
 typedef struct	s_fdf {
 	t_vector	**vecs;
+	t_vector	**flats;
 	void		*mlx;
 	void		*win;
 	int			map_row;
@@ -85,9 +87,12 @@ void		free_fdf(t_fdf *fdf, t_slist *file_map, bool is_error);
 void		init_vecs(t_fdf *fdf);
 void		rotate_horizontally(t_fdf *fdf, double radian);
 void		rotate_around_y_ordinate(t_fdf *fdf, double radian);
-void		rotate_around_x_axis(t_fdf *fdf, double radian);
+void		rotate_around_x_axis(t_vector *vec, double radian);
 void	    draw_map(t_fdf *fdf);
 t_vector    get_internal_vector(t_vector start, t_vector end, double ratio);
 int			key_hook(int keycode, t_fdf *fdf);
+// void		zoom_map(t_fdf *fdf, double coef);
+void		update_vecs(t_fdf *fdf, void (*func)(t_vector *, double), double arg);
+void		zoom(t_vector *vec, double coef);
 
 #endif  // FDF_H

@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 10:32:44 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/06 23:04:39 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/06 23:48:44 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,8 @@ void    draw_map(t_fdf *fdf)
         }
     }
     mlx_put_image_to_window(fdf->mlx, fdf->win, img.img, 0, 0);
-    mlx_string_put(fdf->mlx, fdf->win, 500, 900, 0xEEAAAA, "fdf");
+    mlx_string_put(fdf->mlx, fdf->win, 200, 900, 0xEEAAAA, "Zoom in  : +");
+    mlx_string_put(fdf->mlx, fdf->win, 200, 920, 0xEEAAAA, "Zoom out : -");
     mlx_key_hook(fdf->win, key_hook, fdf);
     // mlx_mouse_hook(fdf->win, mouse_hook, fdf);
 	mlx_loop(fdf->mlx);

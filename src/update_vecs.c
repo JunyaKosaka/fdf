@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 09:05:15 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/06 21:06:48 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/07 10:27:52 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,30 +58,7 @@ void	rotate_around_y_ordinate(t_fdf *fdf, double radian)
 	}
 }
 
-void	rotate_around_x_axis(t_fdf *fdf, double radian)
-{
-	int			row_i;
-	int			col_i;
-	t_vector	src;
-	t_vector	dest;
-
-	row_i = -1;
-	while (++row_i < fdf->map_row)
-	{
-		col_i = -1;
-		while (++col_i < fdf->map_col)
-		{
-			src = fdf->vecs[row_i][col_i];
-			dest.x = src.x;
-			dest.y = (src.y * cos(radian)) - (src.z * sin(radian));
-			dest.z = (src.y * sin(radian)) + (src.z * cos(radian));
-			dest.color = src.color;	
-			fdf->vecs[row_i][col_i] = dest;
-		}
-	}
-}
-
-// void	zoom_map(t_fdf *fdf, double ratio)
+// void	rotate_around_x_axis(t_fdf *fdf, double radian)
 // {
 // 	int			row_i;
 // 	int			col_i;
@@ -104,7 +81,48 @@ void	rotate_around_x_axis(t_fdf *fdf, double radian)
 // 	}
 // }
 
+void	rotate_around_x_axis(t_vector *vec, double radian)	
+{
+	t_vector	src;
+	t_vector	dest;	
 
+	src = *vec;
+	dest.x = src.x;
+	dest.y = (src.y * cos(radian)) - (src.z * sin(radian));
+	dest.z = (src.y * sin(radian)) + (src.z * cos(radian));
+	dest.color = src.color;		
+	dest.color = src.color;	
+	*vec = dest;
+}
+
+void	zoom(t_vector *vec, double coef)
+{
+	t_vector	src;
+	t_vector	dest;	
+
+	src = *vec;
+	dest.x = src.x * coef;
+	dest.y = src.y * coef;
+	dest.z = src.z * coef;
+	dest.color = src.color;	
+	*vec = dest;
+}
+
+void	update_vecs(t_fdf *fdf, void (*func)(t_vector *, double), double arg)
+{
+	int			row_i;
+	int			col_i;
+
+	row_i = -1;
+	while (++row_i < fdf->map_row)
+	{
+		col_i = -1;
+		while (++col_i < fdf->map_col)
+		{
+			func(&fdf->vecs[row_i][col_i], arg);
+		}
+	}	
+}
 
 // void	gain_altitude(t_fdf *fdf, double altitude)
 // {
