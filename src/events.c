@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 15:47:42 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/07 14:11:41 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/07 14:40:01 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,13 @@
 
 int	key_hook(int keycode, t_fdf *fdf)
 {
-    if (keycode == ON_DESTROY)
-        free_fdf(fdf, NULL, false);
+	if (keycode == ON_DESTROY)
+		free_fdf(fdf, NULL, false);
 	printf("key: %d\n", keycode);
-    if (keycode == ON_KEYUP)
+	if (keycode == ON_KEYUP)
 		update_vecs(fdf, rotate_around_x_axis, M_PI / ROTATE_RATE);
-		// rotate_around_x_axis(fdf, M_PI / 8);
-    if (keycode == ON_KEYDOWN)
+	if (keycode == ON_KEYDOWN)
 		update_vecs(fdf, rotate_around_x_axis, -M_PI / ROTATE_RATE);
-		// rotate_around_x_axis(fdf, -M_PI / 8);
 	if (keycode == ON_KEYRIGHT)
 		rotate_around_y_ordinate(fdf, -M_PI / ROTATE_RATE);
 	if (keycode == ON_KEYLEFT)
@@ -37,10 +35,8 @@ int	key_hook(int keycode, t_fdf *fdf)
 		fdf->shift_x -= SHIFT_MOVE;
 	if (keycode == ON_KEYPLUS)
 		update_vecs(fdf, zoom, 1.3);
-		// zoom_map(fdf, 1.3);
 	if (keycode == ON_KEYMINUS)
 		update_vecs(fdf, zoom, 0.8);
-
-    draw_map(fdf);
+	draw_map(fdf);
 	return (0);
 }

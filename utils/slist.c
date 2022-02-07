@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 18:36:06 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/05 18:52:59 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/07 15:00:07 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_slist	*slist_new(char *content)
 {
-	t_slist *ret;
+	t_slist	*ret;
 
 	ret = (t_slist *)malloc(sizeof(t_slist));
 	if (!ret)

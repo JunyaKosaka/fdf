@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 09:05:15 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/07 10:48:46 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/07 14:59:15 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	rotate_horizontally(t_fdf *fdf, double radian)
 			dest.x = (src.x * cos(radian)) - (src.y * sin(radian));
 			dest.y = (src.x * sin(radian)) + (src.y * cos(radian));
 			dest.z = src.z;
-			dest.color = src.color;	
+			dest.color = src.color;
 			fdf->vecs[row_i][col_i] = dest;
 		}
 	}
@@ -90,8 +90,7 @@ void	rotate_around_x_axis(t_vector *vec, double radian)
 	dest.x = src.x;
 	dest.y = (src.y * cos(radian)) - (src.z * sin(radian));
 	dest.z = (src.y * sin(radian)) + (src.z * cos(radian));
-	dest.color = src.color;		
-	dest.color = src.color;	
+	dest.color = src.color;
 	*vec = dest;
 }
 
@@ -104,11 +103,12 @@ void	zoom(t_vector *vec, double coef)
 	dest.x = src.x * coef;
 	dest.y = src.y * coef;
 	dest.z = src.z * coef;
-	dest.color = src.color;	
+	dest.color = src.color;
 	*vec = dest;
 }
 
-void	update_vecs(t_fdf *fdf, void (*matrix)(t_vector *, double), double ratio)
+void	update_vecs(t_fdf *fdf, void (*matrix)(t_vector *, double), \
+					double ratio)
 {
 	int			row_i;
 	int			col_i;
