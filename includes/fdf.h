@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 15:14:49 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/07 20:24:48 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/07 20:32:41 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # define XY_BASE 5
 # define SCALE_Z 0.8
 # define ROTATE_RATE 10
+# define ZOOM_RATE 1.3
 # define DELTA_RATIO 0.2
 # define RED 0xFF0000
 # define GREEN 0x00FF00
@@ -51,6 +52,7 @@ typedef struct s_data {
 typedef struct s_fdf {
 	t_vector	**vecs;
 	t_vector	**flats;
+	t_vector	origin;
 	void		*mlx;
 	void		*win;
 	int			map_row;

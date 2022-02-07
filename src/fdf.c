@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 14:48:41 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/07 16:56:12 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/07 20:29:29 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 void	init_fdf(t_fdf *fdf)
 {
 	fdf->vecs = NULL;
-	fdf->origin_x = 0;
-	fdf->origin_y = 0;
+	fdf->origin.x = 0;
+	fdf->origin.y = 0;
+	fdf->origin.z = 0;
 }
 
 void	fdf(char *filename)

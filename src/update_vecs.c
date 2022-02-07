@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 09:05:15 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/07 20:27:29 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/07 20:30:18 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,12 +90,9 @@ void	update_vecs(t_fdf *fdf, void (*matrix)(t_vector *, double), \
 		}
 	}
 	if (matrix == shift_x)
-	{
-		printf("114\n");
-		fdf->origin_x += ratio;
-	}
+		fdf->origin.x += ratio;
 	if (matrix == shift_y)
-		fdf->origin_y += ratio;
+		fdf->origin.y += ratio;
 }
 
 // void	gain_altitude(t_fdf *fdf, double altitude)

@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 15:47:42 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/07 20:23:13 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/07 20:33:05 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ int	key_hook(int keycode, t_fdf *fdf)
 	if (keycode == ON_KEYL)
 		update_vecs(fdf, shift_x, -SHIFT_MOVE);
 	if (keycode == ON_KEYPLUS)
-		update_vecs(fdf, zoom, 1.3);
+		update_vecs(fdf, zoom, ZOOM_RATE);
 	if (keycode == ON_KEYMINUS)
-		update_vecs(fdf, zoom, 0.8);
+		update_vecs(fdf, zoom, 1 / ZOOM_RATE);
 	draw_map(fdf);
 	return (0);
 }
