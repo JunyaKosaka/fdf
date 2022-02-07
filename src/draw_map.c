@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 10:32:44 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/07 16:56:41 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/08 02:19:30 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,21 @@ void	draw_two_lines(t_fdf *fdf, t_data *img, int row_i, int col_i)
 		draw_line(img, vec, fdf->vecs[row_i][col_i - 1], fdf);
 }
 
+void	my_mlx_string_put(t_fdf *fdf, int x, int y, char *str)
+{
+	mlx_string_put(fdf->mlx, fdf->win, x, y, STR_COLOR, str);
+}
+
+void	put_description(t_fdf *fdf)
+{
+	my_mlx_string_put(fdf, 740, 900, "Zoom in  : +");
+	my_mlx_string_put(fdf, 740, 920, "Zoom out : -");
+	my_mlx_string_put(fdf, 440, 900, "Altitude higher : ^");
+	my_mlx_string_put(fdf, 440, 920, "Altitude lower  : v");
+	my_mlx_string_put(fdf, 140, 900, "Translate : h j k l");
+	my_mlx_string_put(fdf, 140, 920, "Rotate    : Arrow key");	
+}
+
 /*  draw whole map  */
 void	draw_map(t_fdf *fdf)
 {
@@ -85,8 +100,7 @@ void	draw_map(t_fdf *fdf)
 			draw_two_lines(fdf, &img, row_i, col_i);
 	}
 	mlx_put_image_to_window(fdf->mlx, fdf->win, img.img, 0, 0);
-	mlx_string_put(fdf->mlx, fdf->win, 200, 900, 0xEEAAAA, "Zoom in  : +");
-	mlx_string_put(fdf->mlx, fdf->win, 200, 920, 0xEEAAAA, "Zoom out : -");
+	put_description(fdf);
 	mlx_key_hook(fdf->win, key_hook, fdf);
     // mlx_mouse_hook(fdf->win, mouse_hook, fdf);
 	mlx_loop(fdf->mlx);

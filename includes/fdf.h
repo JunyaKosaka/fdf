@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 15:14:49 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/08 01:25:45 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/08 02:18:57 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 # define RED 0xFF0000
 # define GREEN 0x00FF00
 # define BLUE 0x0000FF
+# define STR_COLOR 0xEEAAAA
 
 /*  vector components include color  */
 typedef struct s_vector
@@ -95,7 +96,8 @@ int			key_hook(int keycode, t_fdf *fdf);
 void		update_vecs(t_fdf *fdf, void (*matrix)(t_vector *, t_vector origin, \
 					double), double ratio);
 void		rotate_horizontally(t_vector *vec, t_vector origin, double radian);
-void		rotate_around_y_ordinate(t_vector *vec, t_vector origin, double radian);
+void		rotate_around_y_ordinate(t_vector *vec, t_vector origin, \
+							double radian);
 void		rotate_around_x_axis(t_vector *vec, t_vector origin, double radian);
 void		zoom(t_vector *vec, t_vector origin, double coef);
 void		shift_x(t_vector *vec, t_vector origin, double move);

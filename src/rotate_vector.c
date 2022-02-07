@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 01:28:29 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/08 01:28:32 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/08 01:59:52 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	rotate_around_y_ordinate(t_vector *vec, t_vector origin, double radian)
 	*vec = dest;
 }
 
-void	rotate_around_x_axis(t_vector *vec, t_vector origin, double radian)	
+void	rotate_around_x_axis(t_vector *vec, t_vector origin, double radian)
 {
 	t_vector	src;
 	t_vector	dest;	
