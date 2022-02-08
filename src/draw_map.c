@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 10:32:44 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/08 02:24:25 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/08 10:43:40 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,10 @@ void	draw_map(t_fdf *fdf)
 		while (++col_i < fdf->map_col)
 			draw_two_lines(fdf, &img, row_i, col_i);
 	}
+	// mlx_do_key_autorepeaton(fdf->mlx); // 効かない
 	mlx_put_image_to_window(fdf->mlx, fdf->win, img.img, 0, 0);
 	put_description(fdf);
 	mlx_key_hook(fdf->win, key_hook, fdf);
-    // mlx_mouse_hook(fdf->win, mouse_hook, fdf);
+    mlx_mouse_hook(fdf->win, mouse_hook, fdf);
 	mlx_loop(fdf->mlx);
 }

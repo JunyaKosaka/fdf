@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 15:14:49 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/08 02:23:18 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/08 11:19:10 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # define XY_BASE 5
 # define SCALE_Z 0.8
 # define ROTATE_RATE 10
+# define M_ROTATE_RATE 20
 # define ZOOM_RATE 1.3
 # define ALTITUDE_RATE 1.3
 # define DELTA_RATIO 0.2
@@ -77,8 +78,8 @@ enum {
 	ON_KEYMINUS = 27,
 	ON_MOUSEDOWN = 4,
 	ON_MOUSEUP = 5,
-	ON_MOUSEMOVE = 6,
-	ON_EXPOSE = 12,
+	ON_MOUSERIGHT = 6,
+	ON_MOUSELEFT = 7, 
 	ON_DESTROY = 53,
 };
 
@@ -93,6 +94,7 @@ void		init_vecs(t_fdf *fdf);
 void		draw_map(t_fdf *fdf);
 void		draw_line(t_data *img, t_vector start, t_vector end, t_fdf *fdf);
 t_vector	get_internal_vector(t_vector start, t_vector end, double ratio);
+int			mouse_hook(int button, int x, int y, t_fdf *fdf);
 int			key_hook(int keycode, t_fdf *fdf);
 void		update_vecs(t_fdf *fdf, void (*matrix)(t_vector *, t_vector origin, \
 					double), double ratio);
