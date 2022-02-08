@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 22:59:56 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/06 08:33:41 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/08 14:31:12 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ static size_t	count_words(char const *s, char c)
 	size_t	ret;
 
 	ret = 0;
+	if (!s)
+		return (ret);
 	while (*s)
 	{
 		if (*s != c && (*(s + 1) == c || *(s + 1) == '\0'))

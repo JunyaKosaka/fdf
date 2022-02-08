@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 14:54:50 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/08 01:02:27 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/08 12:47:11 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ t_vector	**get_vectors(t_fdf *fdf, t_slist *file_map)
 			{
 				vecs[row_i][col_i].color = hex_atoi(one_pixel_element[1]);
 				if (vecs[row_i][col_i].color == -1)
-					exit(1);
+					free_fdf(fdf, file_map, true);
 				//free関数を上に適用
 			}
 			free_2d_arr((void **)one_pixel_element, -1);

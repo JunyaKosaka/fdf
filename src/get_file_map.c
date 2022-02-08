@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 18:21:02 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/07 14:53:53 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/08 14:30:25 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,16 @@ void	get_map_size(t_fdf *fdf, t_slist *file_map)
 
 t_slist	*get_file_map(int fd)
 {
-	char	*map_one_line;
 	t_slist	*file_map;
-	bool	is_ok;
 	t_slist	*new;
+	char	*map_one_line;
+	bool	is_ok;
+	size_t	column;
 
 	map_one_line = get_next_line(fd, &is_ok);
 	if (!is_ok)
 		return (NULL);
+	column = count_words(map_one_line, ' ');
 	file_map = NULL;
 	while (map_one_line != NULL)
 	{
@@ -45,6 +47,7 @@ t_slist	*get_file_map(int fd)
 			return (NULL);
 		slist_add_back(&file_map, new);
 		map_one_line = get_next_line(fd, &is_ok);
+		// if (!is_ok || column != count_words(map_one_line, ' '))
 		if (!is_ok)
 			return (NULL);
 	}
