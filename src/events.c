@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 15:47:42 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/08 20:22:14 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/08 23:58:13 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	mouse_hook(int button, int x, int y, t_fdf *fdf)
 	else if (button == ON_MOUSERIGHT)
 		update_vecs(fdf, rotate_around_y_ordinate, -M_PI / M_ROTATE_RATE);
 	else if (button == ON_MOUSELEFT)
-		update_vecs(fdf, rotate_around_y_ordinate, M_PI / M_ROTATE_RATE);	
+		update_vecs(fdf, rotate_around_y_ordinate, M_PI / M_ROTATE_RATE);
 	else
 	{
 		update_vecs(fdf, rotate_around_x_axis, diff_y * coef);

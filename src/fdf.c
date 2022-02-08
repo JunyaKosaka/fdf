@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 14:48:41 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/08 23:22:56 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/08 23:54:07 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,36 +28,34 @@ void	init_fdf(t_fdf *fdf)
 
 void	prepare_vecs(t_fdf *fdf, t_slist *file_map)
 {
-	t_vector	**vecs;
-	t_vector	**flats;
 	int			row_i;
 	int			col_i;
 
-	vecs = (t_vector **)malloc(sizeof(t_vector *) * fdf->map_row);
-	flats = (t_vector **)malloc(sizeof(t_vector *) * fdf->map_row);
-	if (!vecs || !flats)
+	fdf->vecs = (t_vector **)malloc(sizeof(t_vector *) * fdf->map_row);
+	fdf->flats = (t_vector **)malloc(sizeof(t_vector *) * fdf->map_row);
+	if (!fdf->vecs || !fdf->flats)
 		free_fdf(fdf, file_map, true);
 	row_i = -1;
 	while (++row_i < fdf->map_row)
 	{
-		col_i = -1;
-		vecs[row_i] = (t_vector *)malloc(sizeof(t_vector) * fdf->map_col);
-		flats[row_i] = (t_vector *)malloc(sizeof(t_vector) * fdf->map_col);
-		if (!(vecs[row_i]) || !(flats[row_i]))
-		{
-			free_2d_arr((void **)vecs, fdf->map_col);
-			free_2d_arr((void **)flats, fdf->map_col);
+		fdf->vecs[row_i] = (t_vector *)malloc(sizeof(t_vector) * fdf->map_col);
+		fdf->flats[row_i] = (t_vector *)malloc(sizeof(t_vector) * fdf->map_col);
+		if (!(fdf->vecs[row_i]) || !(fdf->flats[row_i]))
 			free_fdf(fdf, file_map, true);
+		col_i = -1;
+		while (++col_i < fdf->map_col)
+		{
+			fdf->vecs[row_i][col_i].x = col_i;
+			fdf->vecs[row_i][col_i].y = row_i;
+			fdf->vecs[row_i][col_i].color = WHITE;
 		}
 	}
-	fdf->vecs = vecs;
-	fdf->flats = flats;
 }
 
 void	fdf(char *filename)
 {
 	int			fd;
-	t_fdf       fdf;
+	t_fdf		fdf;
 	t_slist		*file_map;
 	t_data		img;
 
@@ -65,7 +63,7 @@ void	fdf(char *filename)
 	if (fd == -1)
 	{
 		perror(filename);
-		exit(EXIT_FAILURE); // directoryの時
+		exit(EXIT_FAILURE);
 	}
 	init_fdf(&fdf);
 	file_map = get_file_map(fd);
@@ -73,8 +71,6 @@ void	fdf(char *filename)
 		free_fdf(&fdf, file_map, true);
 	get_map_size(&fdf, file_map);
 	prepare_vecs(&fdf, file_map);
-	// 列数判定
-	set_xy_color(&fdf);
 	set_vectors(&fdf, file_map);
 	slist_clear(&file_map);
 	init_vecs(&fdf);

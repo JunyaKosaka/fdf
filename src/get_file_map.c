@@ -6,20 +6,11 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 18:21:02 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/08 23:05:59 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/08 23:56:50 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
-
-void	show_file_map(t_slist *map) // delete
-{
-	while (map != NULL)
-	{
-		printf("%s", map->content);
-		map = map->next;
-	}
-}
 
 void	get_map_size(t_fdf *fdf, t_slist *file_map)
 {

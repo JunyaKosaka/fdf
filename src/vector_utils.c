@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 01:23:45 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/08 01:25:55 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/08 23:56:32 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,4 @@ t_vector	diff_vec(t_vector a, t_vector b)
 	a.y -= b.y;
 	a.z -= b.z;
 	return (a);
-}
-
-void	show_vec(t_vector vec) // delete
-{
-	printf("vec: %.2f %.2f %.2f\n", vec.x, vec.y, vec.z);
 }

@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 18:23:39 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/06 00:53:08 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/08 23:59:03 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,8 @@ static char	*get_one_line(char **save, int fd, ssize_t read_bytes)
 {
 	if (!read_bytes)
 		return (get_one_line_core(&save[fd], ft_strlen(save[fd])));
-	return (get_one_line_core(&save[fd], ft_strchr(save[fd], '\n') - save[fd] + 1));
+	return (get_one_line_core(&save[fd], \
+			ft_strchr(save[fd], '\n') - save[fd] + 1));
 }
 
 static char	*init_save(char *s)
