@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 18:21:02 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/08 20:49:35 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/08 23:05:59 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,13 @@ void	get_map_size(t_fdf *fdf, t_slist *file_map)
 {
 	fdf->map_row = slist_size(file_map);
 	fdf->map_col = count_words(file_map->content, ' ');
+}
+
+static	void	*free_one_line(char *one_line)
+{
+	free(one_line);
+	one_line = NULL;
+	return (NULL);
 }
 
 t_slist	*get_file_map(int fd)
@@ -49,9 +56,8 @@ t_slist	*get_file_map(int fd)
 		one_line = get_next_line(fd, &is_ok);
 		if (!is_ok || (one_line && column != count_words(one_line, ' ')))
 		{
-			free(one_line);
 			slist_clear(&file_map);
-			return (NULL);
+			return (free_one_line(one_line));
 		}
 	}
 	return (file_map);

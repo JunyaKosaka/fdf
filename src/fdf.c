@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 14:48:41 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/08 20:48:50 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/08 23:02:01 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@ void	init_fdf(t_fdf *fdf)
 	fdf->origin.x = 0;
 	fdf->origin.y = 0;
 	fdf->origin.z = 0;
+	fdf->mlx = mlx_init();
+	fdf->win = mlx_new_window(fdf->mlx, 1000, 1000, " FDF ");
+	fdf->img.img = mlx_new_image(fdf->mlx, WIN_SIZE, WIN_SIZE);
+	fdf->img.addr = mlx_get_data_addr(fdf->img.img, &fdf->img.bits_per_pixel, \
+			&fdf->img.line_length, &fdf->img.endian);
 }
 
 void	prepare_vecs(t_fdf *fdf, t_slist *file_map)
@@ -63,11 +68,6 @@ void	fdf(char *filename)
 		exit(EXIT_FAILURE); // directoryの時
 	}
 	init_fdf(&fdf);
-	fdf.mlx = mlx_init();
-	fdf.win = mlx_new_window(fdf.mlx, 1000, 1000, " FDF ");
-	fdf.img.img = mlx_new_image(fdf.mlx, WIN_SIZE, WIN_SIZE);
-	fdf.img.addr = mlx_get_data_addr(fdf.img.img, &fdf.img.bits_per_pixel, \
-			&fdf.img.line_length, &fdf.img.endian);
 	file_map = get_file_map(fd);
 	if (!file_map)
 		free_fdf(&fdf, file_map, true);
