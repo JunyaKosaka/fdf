@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 14:54:50 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/08 12:47:11 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/08 14:34:42 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,18 @@ t_vector	**get_flats(t_fdf *fdf)
 	int			row_i;
 	int			col_i;
 
-	flats = (t_vector **)malloc(sizeof(t_vector *) * fdf->map_row);
-	if (!flats)
-		free_fdf(fdf, NULL, true);
+	// flats = (t_vector **)malloc(sizeof(t_vector *) * fdf->map_row);
+	// if (!flats)
+	// 	free_fdf(fdf, NULL, true);
 	row_i = -1;
 	while (++row_i < fdf->map_row)
 	{
-		flats[row_i] = (t_vector *)malloc(sizeof(t_vector) * fdf->map_col);
-		if (!flats[row_i])
-		{
-			free_2d_arr((void **)flats, fdf->map_row);
-			free_fdf(fdf, NULL, true);
-		}
+		// flats[row_i] = (t_vector *)malloc(sizeof(t_vector) * fdf->map_col);
+		// if (!flats[row_i])
+		// {
+		// 	free_2d_arr((void **)flats, fdf->map_row);
+		// 	free_fdf(fdf, NULL, true);
+		// }
 		col_i = -1;
 		while (++col_i < fdf->map_col)
 		{
@@ -49,14 +49,14 @@ t_vector	**get_vectors(t_fdf *fdf, t_slist *file_map)
 	int			row_i;
 	int			col_i;
 
-	vecs = (t_vector **)malloc(sizeof(t_vector *) * fdf->map_row);
-	if (!vecs)
-		free_fdf(fdf, file_map, true);
+	// vecs = (t_vector **)malloc(sizeof(t_vector *) * fdf->map_row);
+	// if (!vecs)
+	// 	free_fdf(fdf, file_map, true);
 	row_i = -1;
 	while (++row_i < fdf->map_row)
 	{
 		one_line_element = ft_split(file_map->content, ' ');
-		vecs[row_i] = (t_vector *)malloc(sizeof(t_vector) * fdf->map_col);
+		// vecs[row_i] = (t_vector *)malloc(sizeof(t_vector) * fdf->map_col);
 		if (one_line_element == NULL || vecs[row_i] == NULL)
 			free_fdf(fdf, file_map, true);
 		col_i = -1;

@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 14:48:41 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/08 14:33:35 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/08 14:36:44 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,30 @@ void	init_fdf(t_fdf *fdf)
 	fdf->origin.z = 0;
 }
 
-// void	prepare_vecs(t_fdf *fdf, t_slist *file_map)
-// {
-// 	t_vector	**vecs;
-// 	t_vector	**flats;
-// 	int			row_i;
-// 	int			col_i;
+void	prepare_vecs(t_fdf *fdf, t_slist *file_map)
+{
+	t_vector	**vecs;
+	t_vector	**flats;
+	int			row_i;
+	int			col_i;
 
-// 	vecs = (t_vector **)malloc(sizeof(t_vector *) * fdf->map_row);
-// 	flats = (t_vector **)malloc(sizeof(t_vector *) * fdf->map_row);
-// 	if (!vecs || !flats)
-// 		free_fdf(fdf, file_map, true);
-// 	row_i = -1;
-// 	while (++row_i < fdf->map_row)	
-
-	
-// }
+	vecs = (t_vector **)malloc(sizeof(t_vector *) * fdf->map_row);
+	flats = (t_vector **)malloc(sizeof(t_vector *) * fdf->map_row);
+	if (!vecs || !flats)
+		free_fdf(fdf, file_map, true);
+	row_i = -1;
+	while (++row_i < fdf->map_row)
+	{
+		col_i = -1;
+		while (++col_i < fdf->map_col)
+		{
+			vecs[row_i] = (t_vector *)malloc(sizeof(t_vector) * fdf->map_col);
+			flats[row_i] = (t_vector *)malloc(sizeof(t_vector) * fdf->map_col);
+			if (!(vecs[row_i]) || !(flats[row_i]))
+				free_fdf(fdf, file_map, true);
+		}
+	}
+}
 
 void	fdf(char *filename)
 {
@@ -57,7 +65,7 @@ void	fdf(char *filename)
 		free_fdf(&fdf, file_map, true);
 	init_fdf(&fdf);
 	get_map_size(&fdf, file_map);
-	// prepare_vecs(&fdf, file_map);
+	prepare_vecs(&fdf, file_map);
 	// 列数判定
 	fdf.vecs = get_vectors(&fdf, file_map);
 	slist_clear(&file_map);
