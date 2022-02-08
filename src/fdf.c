@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 14:48:41 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/08 23:02:01 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/08 23:22:56 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ void	fdf(char *filename)
 	get_map_size(&fdf, file_map);
 	prepare_vecs(&fdf, file_map);
 	// 列数判定
+	set_xy_color(&fdf);
 	set_vectors(&fdf, file_map);
 	slist_clear(&file_map);
 	init_vecs(&fdf);
