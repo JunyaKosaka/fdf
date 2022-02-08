@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:20:30 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/08 14:33:09 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/08 17:49:48 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	free_fdf(t_fdf *fdf, t_slist *file_map, bool is_error)
 	mlx_destroy_window(fdf->mlx, fdf->win);
 	free(fdf->mlx);
 	fdf->mlx = NULL;
+	system("leaks -q fdf");
 	if (is_error)
 		exit(error_handler());
 	exit(0);

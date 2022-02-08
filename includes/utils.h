@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 16:28:28 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/07 15:16:06 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/08 17:40:30 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <math.h>
 # include <fcntl.h>
 # include <errno.h>
+# include <malloc/malloc.h>
 # include "../libft/libft.h"
 
 # define STDERR 2

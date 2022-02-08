@@ -6,13 +6,13 @@
 #    By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/05 16:47:09 by jkosaka           #+#    #+#              #
-#    Updated: 2022/02/08 02:25:26 by jkosaka          ###   ########.fr        #
+#    Updated: 2022/02/08 14:50:11 by jkosaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := ../fdf
 
-SRCS := fdf.c get_file_map.c get_vectors.c free.c init_vectors.c \
+SRCS := fdf.c get_file_map.c set_vectors.c free.c init_vectors.c \
 	update_vecs.c draw_map.c events.c get_internal_vector.c \
 	vector_utils.c rotate_vector.c draw_line.c \
 

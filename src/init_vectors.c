@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 01:23:02 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/08 01:23:05 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/08 14:49:15 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,12 @@ static void	scale_up(t_fdf *fdf)
 	}
 }
 
+/*  initialize vecs and copy from vecs to flats  */
 void	init_vecs(t_fdf *fdf)
 {
 	change_center(fdf);
 	scale_up(fdf);
-	fdf->flats = get_flats(fdf);
+	copy_vecs_to_flats(fdf);
 	update_vecs(fdf, rotate_horizontally, M_PI / 4);
 	update_vecs(fdf, rotate_around_x_axis, acos((double)1 / sqrt(5)));
 }

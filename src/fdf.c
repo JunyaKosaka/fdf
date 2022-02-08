@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 14:48:41 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/08 14:36:44 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/08 17:50:11 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,17 @@ void	prepare_vecs(t_fdf *fdf, t_slist *file_map)
 	while (++row_i < fdf->map_row)
 	{
 		col_i = -1;
-		while (++col_i < fdf->map_col)
+		vecs[row_i] = (t_vector *)malloc(sizeof(t_vector) * fdf->map_col);
+		flats[row_i] = (t_vector *)malloc(sizeof(t_vector) * fdf->map_col);
+		if (!(vecs[row_i]) || !(flats[row_i]))
 		{
-			vecs[row_i] = (t_vector *)malloc(sizeof(t_vector) * fdf->map_col);
-			flats[row_i] = (t_vector *)malloc(sizeof(t_vector) * fdf->map_col);
-			if (!(vecs[row_i]) || !(flats[row_i]))
-				free_fdf(fdf, file_map, true);
+			free_2d_arr((void **)vecs, fdf->map_col);
+			free_2d_arr((void **)flats, fdf->map_col);
+			free_fdf(fdf, file_map, true);
 		}
 	}
+	fdf->vecs = vecs;
+	fdf->flats = flats;
 }
 
 void	fdf(char *filename)
@@ -51,6 +54,7 @@ void	fdf(char *filename)
 	int			fd;
 	t_fdf       fdf;
 	t_slist		*file_map;
+	t_data		img;
 
 	fd = open(filename, R_OK);
 	if (fd == -1)
@@ -60,6 +64,9 @@ void	fdf(char *filename)
 	}
 	fdf.mlx = mlx_init();
 	fdf.win = mlx_new_window(fdf.mlx, 1000, 1000, " FDF ");
+	// img.img = mlx_new_image(fdf.mlx, WIN_SIZE, WIN_SIZE);
+	// img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, \
+	// 		&img.line_length, &img.endian);
 	file_map = get_file_map(fd);
 	if (!file_map)
 		free_fdf(&fdf, file_map, true);
@@ -67,10 +74,8 @@ void	fdf(char *filename)
 	get_map_size(&fdf, file_map);
 	prepare_vecs(&fdf, file_map);
 	// 列数判定
-	fdf.vecs = get_vectors(&fdf, file_map);
+	set_vectors(&fdf, file_map);
 	slist_clear(&file_map);
 	init_vecs(&fdf);
 	draw_map(&fdf);
-
-	// system("leaks fdf");
 }

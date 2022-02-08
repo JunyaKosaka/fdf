@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 15:14:49 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/08 11:19:10 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/08 17:23:08 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ typedef struct s_fdf {
 	t_vector	**vecs;
 	t_vector	**flats;
 	t_vector	origin;
+	t_data		img;
 	void		*mlx;
 	void		*win;
 	int			map_row;
@@ -85,8 +86,8 @@ enum {
 
 void		fdf(char *filename);
 t_slist		*get_file_map(int fd);
-t_vector	**get_vectors(t_fdf *fdf, t_slist *file_map);
-t_vector	**get_flats(t_fdf *fdf);
+void		set_vectors(t_fdf *fdf, t_slist *file_map);
+void		copy_vecs_to_flats(t_fdf *fdf);
 void		get_map_size(t_fdf *fdf, t_slist *file_map);
 void		free_2d_arr(void **arr, int map_col);
 void		free_fdf(t_fdf *fdf, t_slist *file_map, bool is_error);

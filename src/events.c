@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 15:47:42 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/08 11:26:07 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/08 17:50:54 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ int	key_hook(int keycode, t_fdf *fdf)
 	printf("key: %d\n", keycode);
 	if (keycode == ON_DESTROY)
 		free_fdf(fdf, NULL, false);
-	else if (keycode == ON_KEYUP)
+	mlx_destroy_image(fdf->mlx, fdf->img.img);
+	if (keycode == ON_KEYUP)
 		update_vecs(fdf, rotate_around_x_axis, M_PI / ROTATE_RATE);
 	else if (keycode == ON_KEYDOWN)
 		update_vecs(fdf, rotate_around_x_axis, -M_PI / ROTATE_RATE);
@@ -67,7 +68,6 @@ int	key_hook(int keycode, t_fdf *fdf)
 		raise_altitude(fdf, ALTITUDE_RATE);
 	else if (keycode == ON_KEYV)
 		raise_altitude(fdf, 1 / ALTITUDE_RATE);
-	// printf("%.2f %.2f\n", fdf->origin.x, fdf->origin.y);
 	draw_map(fdf);
 	return (0);
 }
