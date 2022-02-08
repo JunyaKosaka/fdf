@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 10:32:44 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/08 17:49:34 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/08 20:13:51 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ static void	put_description(t_fdf *fdf)
 {
 	my_mlx_string_put(fdf, 740, 900, "Zoom in  : +");
 	my_mlx_string_put(fdf, 740, 920, "Zoom out : -");
-	my_mlx_string_put(fdf, 440, 900, "Altitude higher : ^");
-	my_mlx_string_put(fdf, 440, 920, "Altitude lower  : v");
+	my_mlx_string_put(fdf, 440, 900, "Altitude higher : w");
+	my_mlx_string_put(fdf, 440, 920, "Altitude lower  : s");
 	my_mlx_string_put(fdf, 140, 900, "Translate : h j k l");
 	my_mlx_string_put(fdf, 140, 920, "Rotate    : Arrow key");	
 }

@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 18:21:02 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/08 17:50:36 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/08 20:49:35 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,24 +31,28 @@ t_slist	*get_file_map(int fd)
 {
 	t_slist	*file_map;
 	t_slist	*new;
-	char	*map_one_line;
+	char	*one_line;
 	bool	is_ok;
 	size_t	column;
 
-	map_one_line = get_next_line(fd, &is_ok);
-	if (!is_ok)
+	one_line = get_next_line(fd, &is_ok);
+	if (!is_ok || !one_line)
 		return (NULL);
-	column = count_words(map_one_line, ' ');
+	column = count_words(one_line, ' ');
 	file_map = NULL;
-	while (map_one_line != NULL)
+	while (one_line != NULL)
 	{
-		new = slist_new(map_one_line);
+		new = slist_new(one_line);
 		if (!new)
 			return (NULL);
 		slist_add_back(&file_map, new);
-		map_one_line = get_next_line(fd, &is_ok);
-		if (!is_ok)
+		one_line = get_next_line(fd, &is_ok);
+		if (!is_ok || (one_line && column != count_words(one_line, ' ')))
+		{
+			free(one_line);
+			slist_clear(&file_map);
 			return (NULL);
+		}
 	}
 	return (file_map);
 }

@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:20:30 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/08 17:49:48 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/08 20:50:12 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ void	free_2d_arr(void **arr, int limit)
 
 void	free_fdf(t_fdf *fdf, t_slist *file_map, bool is_error)
 {
-	slist_clear(&file_map);
+	if (file_map)
+		slist_clear(&file_map);
 	if (fdf->vecs)
 		free_2d_arr((void **)fdf->vecs, fdf->map_row);
 	if (fdf->flats)
@@ -40,7 +41,7 @@ void	free_fdf(t_fdf *fdf, t_slist *file_map, bool is_error)
 	mlx_destroy_window(fdf->mlx, fdf->win);
 	free(fdf->mlx);
 	fdf->mlx = NULL;
-	system("leaks -q fdf");
+	// system("leaks -q fdf");
 	if (is_error)
 		exit(error_handler());
 	exit(0);

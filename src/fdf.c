@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 14:48:41 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/08 17:50:11 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/08 20:48:50 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,15 +62,15 @@ void	fdf(char *filename)
 		perror(filename);
 		exit(EXIT_FAILURE); // directoryの時
 	}
+	init_fdf(&fdf);
 	fdf.mlx = mlx_init();
 	fdf.win = mlx_new_window(fdf.mlx, 1000, 1000, " FDF ");
-	// img.img = mlx_new_image(fdf.mlx, WIN_SIZE, WIN_SIZE);
-	// img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, \
-	// 		&img.line_length, &img.endian);
+	fdf.img.img = mlx_new_image(fdf.mlx, WIN_SIZE, WIN_SIZE);
+	fdf.img.addr = mlx_get_data_addr(fdf.img.img, &fdf.img.bits_per_pixel, \
+			&fdf.img.line_length, &fdf.img.endian);
 	file_map = get_file_map(fd);
 	if (!file_map)
 		free_fdf(&fdf, file_map, true);
-	init_fdf(&fdf);
 	get_map_size(&fdf, file_map);
 	prepare_vecs(&fdf, file_map);
 	// 列数判定

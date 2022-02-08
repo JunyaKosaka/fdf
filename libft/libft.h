@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 08:43:12 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/13 12:52:13 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/08 20:26:18 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 
 # include <stdlib.h>
+# include <stdio.h>
 # include <unistd.h>
 # include <string.h>
 # include <limits.h>
