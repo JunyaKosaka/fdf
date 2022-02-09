@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 15:14:49 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/09 18:10:25 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/10 02:21:26 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,8 @@ enum {
 	ON_MOUSEUP = 5,
 	ON_MOUSERIGHT = 6,
 	ON_MOUSELEFT = 7,
-	ON_DESTROY = 65307,
+	ON_ESC = 65307,
+	ON_DESTROY = 17,
 };
 
 void		fdf(char *filename);

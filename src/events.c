@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 15:47:42 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/10 01:50:37 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/10 02:21:44 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	key_hook_sub(int keycode, t_fdf *fdf)
 
 int	key_hook(int keycode, t_fdf *fdf)
 {
-	if (keycode == ON_DESTROY)
+	if (keycode == ON_ESC)
 		free_fdf(fdf, NULL, false);
 	if (keycode == ON_KEYUP)
 		update_vecs(fdf, rotate_around_x_axis, M_PI / ROTATE_RATE);
