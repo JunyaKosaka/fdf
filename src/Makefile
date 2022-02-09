@@ -6,7 +6,7 @@
 #    By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/05 16:47:09 by jkosaka           #+#    #+#              #
-#    Updated: 2022/02/09 17:58:47 by jkosaka          ###   ########.fr        #
+#    Updated: 2022/02/09 18:20:27 by jkosaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,8 +45,6 @@ $(NAME) : $(OBJS)
 	make -C ../utils
 	make -C ../minilibx-linux
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBUTIL) $(MLX) -lXext -lX11 -lm
-#$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBUTIL) $(MLX)
-#$(CC) $(CFLAGS) -framework OpenGL -framework AppKit -o $(NAME) $(OBJS) $(LIBUTIL) $(MLX)
 
 all : $(NAME)
 
@@ -56,18 +54,15 @@ bonus : all
 .c.o :
 	$(CC) -c $< -o $@
 
-# %.o: %.c
-# 	$(CC) -Wall -Wextra -Werror -I/usr/include -Imlx_linux -O3 -c $< -o $@
-
 clean :
-#make clean -C ../libft
-#make clean -C ../utils
-#make clean -C ../minilibx-linux
+	make clean -C ../libft
+	make clean -C ../utils
+	make clean -C ../minilibx-linux
 	$(RM) $(OBJS) $(MAND_OBJS) $(BNS_OBJS)
 
 fclean : clean
-#fclean -C ../libft
-#make fclean -C ../utils
+	fclean -C ../libft
+	make fclean -C ../utils
 	$(RM) $(NAME) $(LIBUTIL) $(MLX)
 
 re : fclean all
@@ -75,7 +70,6 @@ re : fclean all
 fullclean : clean
 	make fclean -C ../libft
 	make fclean -C ../utils
-#make clean -C ../minilibx_macos
 	make fclean -C ../minilibx-linux
 	$(RM) $(NAME) $(LIBUTIL) $(MLX)
 
