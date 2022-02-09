@@ -6,7 +6,7 @@
 #    By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/05 16:47:09 by jkosaka           #+#    #+#              #
-#    Updated: 2022/02/09 14:10:17 by jkosaka          ###   ########.fr        #
+#    Updated: 2022/02/09 14:16:38 by jkosaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ OBJS := $(SRCS:%.c=%.o)
 
 LIBUTIL := ../utils/libutil.a
 
-MLX := ../libmlx.a
+MLX := ../minilibx/libmlx.a
 
 CC := cc
 
