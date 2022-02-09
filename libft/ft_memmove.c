@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 20:25:23 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/10/17 18:19:12 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/10 00:36:18 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t n)
 {
-	if (dst == src || n == 0 )
+	if (dst == src || n == 0)
 		return (dst);
 	while (src < dst && dst <= src + n)
 	{
