@@ -6,14 +6,14 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 15:14:49 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/09 17:54:11 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/09 18:10:25 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 
-# include "../minilibx_macos/mlx.h"
+# include "../minilibx-linux/mlx.h"
 # include "./utils.h"
 
 # define SHIFT_MOVE 50
