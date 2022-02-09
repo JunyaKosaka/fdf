@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 15:47:42 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/09 17:54:11 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/09 18:14:23 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ void	key_hook_sub(int keycode, t_fdf *fdf)
 
 int	key_hook(int keycode, t_fdf *fdf)
 {
-	printf("key: %d\n", keycode);
 	if (keycode == ON_DESTROY)
 		free_fdf(fdf, NULL, false);
 	mlx_destroy_image(fdf->mlx, fdf->img.img);
