@@ -6,16 +6,16 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 16:57:41 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/08 17:38:47 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/09 14:06:37 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-__attribute__((destructor))
-    static void destructor() {
-    system("leaks -q fdf");
-}
+// __attribute__((destructor))
+//     static void destructor() {
+//     system("leaks -q fdf");
+// }
 
 int	main(int argc, char **argv)
 {
