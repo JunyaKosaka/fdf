@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 15:14:49 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/09 17:25:29 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/09 17:29:53 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,19 +70,19 @@ enum {
 	ON_KEYUP = 65362,
 	ON_KEYRIGHT = 65363,
 	ON_KEYDOWN = 65364,
-	ON_KEYW = 13,
-	ON_KEYS = 1,
-	ON_KEYH = 4,
-	ON_KEYJ = 38,
-	ON_KEYK = 40,
-	ON_KEYL = 37,
-	ON_KEYPLUS = 24,
-	ON_KEYMINUS = 27,
+	ON_KEYW = 119,
+	ON_KEYS = 115,
+	ON_KEYH = 104,
+	ON_KEYJ = 106,
+	ON_KEYK = 107,
+	ON_KEYL = 108,
+	ON_KEYPLUS = 94,
+	ON_KEYMINUS = 45,
 	ON_MOUSEDOWN = 4,
 	ON_MOUSEUP = 5,
 	ON_MOUSERIGHT = 6,
-	ON_MOUSELEFT = 7, 
-	ON_DESTROY = 53,
+	ON_MOUSELEFT = 7,
+	ON_DESTROY = 65307,
 };
 
 void		fdf(char *filename);
