@@ -6,7 +6,7 @@
 #    By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/05 16:47:09 by jkosaka           #+#    #+#              #
-#    Updated: 2022/02/09 14:25:34 by jkosaka          ###   ########.fr        #
+#    Updated: 2022/02/09 14:28:47 by jkosaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,7 @@ endif
 $(NAME) : $(OBJS)
 	make -C ../utils
 #make -C ../minilibx_macos
-	make -C ../minilibx-linux
+#make -C ../minilibx-linux
 	$(CC) $(CFLAGS) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME) $(OBJS) $(LIBUTIL) $(MLX)
 #$(CC) $(CFLAGS) -framework OpenGL -framework AppKit -o $(NAME) $(OBJS) $(LIBUTIL) $(MLX)
 
@@ -75,7 +75,7 @@ re : fclean all
 fullclean : clean
 	make fclean -C ../libft
 	make fclean -C ../utils
-	make clean -C ../minilibx-linux
+#make clean -C ../minilibx_macos
 	$(RM) $(NAME) $(LIBUTIL) $(MLX)
 
 PHONY : fclean clean all re test retest
