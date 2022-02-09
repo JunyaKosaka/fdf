@@ -6,7 +6,7 @@
 #    By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/05 16:47:09 by jkosaka           #+#    #+#              #
-#    Updated: 2022/02/09 11:00:19 by jkosaka          ###   ########.fr        #
+#    Updated: 2022/02/09 13:56:02 by jkosaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,15 +43,18 @@ endif
 $(NAME) : $(OBJS)
 	make -C ../utils
 	make -C ../minilibx_macos
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBUTIL) $(MLX)
+	$(CC) $(CFLAGS) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME) $(OBJS) $(LIBUTIL) $(MLX)
 
 all : $(NAME)
 
 bonus : all
 	make WITH_BONUS=1
 
-.c.o :
-	$(CC) -c $< -o $@
+# .c.o :
+# 	$(CC) -c $< -o $@
+
+%.o: %.c
+	$(CC) -Wall -Wextra -Werror -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
 clean :
 #make clean -C ../libft
