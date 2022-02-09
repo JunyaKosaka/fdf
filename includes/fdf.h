@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 15:14:49 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/09 17:41:58 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/09 17:43:02 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 # define M_ROTATE_RATE 20
 # define ZOOM_RATE 1.3
 # define ALTITUDE_RATE 1.3
-# define DELTA_RATIO 0.4
+# define DELTA_RATIO 0.6
 # define WHITE 0xEEDDDD
 # define RED 0xFF0000
 # define GREEN 0x00FF00
