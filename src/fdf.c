@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 14:48:41 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/09 13:57:28 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/09 17:37:17 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	init_fdf(t_fdf *fdf)
 	fdf->origin.y = 0;
 	fdf->origin.z = 0;
 	fdf->mlx = mlx_init();
-	fdf->win = mlx_new_window(fdf->mlx, 1000, 1000, " FDF ");
+	fdf->win = mlx_new_window(fdf->mlx, WIN_SIZE, WIN_SIZE, " FDF ");
 	fdf->img.img = mlx_new_image(fdf->mlx, WIN_SIZE, WIN_SIZE);
 	fdf->img.addr = mlx_get_data_addr(fdf->img.img, &fdf->img.bits_per_pixel, \
 			&fdf->img.line_length, &fdf->img.endian);
