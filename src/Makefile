@@ -6,7 +6,7 @@
 #    By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/05 16:47:09 by jkosaka           #+#    #+#              #
-#    Updated: 2022/02/09 14:17:58 by jkosaka          ###   ########.fr        #
+#    Updated: 2022/02/09 14:25:34 by jkosaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,11 +20,12 @@ OBJS := $(SRCS:%.c=%.o)
 
 LIBUTIL := ../utils/libutil.a
 
+# MLX := ../libmlx.a
 MLX := ../minilibx-linux/libmlx.a
 
 CC := cc
 
-CFLAGS := -Wall -Wextra -Werror #-framework OpenGL -framework AppKit
+CFLAGS := -Wall -Wextra -Werror
 
 MAND := main.c
 
@@ -42,8 +43,10 @@ endif
 
 $(NAME) : $(OBJS)
 	make -C ../utils
+#make -C ../minilibx_macos
 	make -C ../minilibx-linux
 	$(CC) $(CFLAGS) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME) $(OBJS) $(LIBUTIL) $(MLX)
+#$(CC) $(CFLAGS) -framework OpenGL -framework AppKit -o $(NAME) $(OBJS) $(LIBUTIL) $(MLX)
 
 all : $(NAME)
 
