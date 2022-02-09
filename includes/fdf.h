@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 15:14:49 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/09 17:33:26 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/09 17:35:41 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 
 # define SHIFT_MOVE 50
 # define ARGC 2
-# define WIN_SIZE 800
-# define WIN_CENTER 400
+# define WIN_SIZE 600
+# define WIN_CENTER 300
 # define SCALE_XY 300
 # define XY_BASE 5
 # define SCALE_Z 0.8
