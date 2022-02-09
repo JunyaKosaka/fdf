@@ -6,7 +6,7 @@
 #    By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/05 16:47:09 by jkosaka           #+#    #+#              #
-#    Updated: 2022/02/09 21:50:06 by jkosaka          ###   ########.fr        #
+#    Updated: 2022/02/09 22:00:04 by jkosaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ MAND := main.c
 
 MAND_OBJS := $(MAND:%.c=%.o)
 
-BONUS := 
+BONUS := main_bonus.c
 
 BNS_OBJS := $(BONUS:%.c=%.o)
 
@@ -54,22 +54,14 @@ bonus : all
 	$(CC) -c $< -o $@
 
 clean :
-	make clean -C ../libft
 	make clean -C ../utils
 	make clean -C ../minilibx-linux
 	$(RM) $(OBJS) $(MAND_OBJS) $(BNS_OBJS)
 
 fclean : clean
-	fclean -C ../libft
 	make fclean -C ../utils
-	$(RM) $(NAME) $(LIBUTIL) $(MLX)
+	$(RM) $(NAME) $(MLX)
 
 re : fclean all
-
-fullclean : clean
-	make fclean -C ../libft
-	make fclean -C ../utils
-	make fclean -C ../minilibx-linux
-	$(RM) $(NAME) $(LIBUTIL) $(MLX)
 
 PHONY : fclean clean all re test retest
