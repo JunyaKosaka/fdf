@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 14:54:50 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/08 23:53:38 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/09 13:59:08 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	copy_vecs_to_flats(t_fdf *fdf)
 {
-	t_vector	**flats;
 	int			row_i;
 	int			col_i;
 
@@ -28,11 +27,6 @@ void	copy_vecs_to_flats(t_fdf *fdf)
 			fdf->flats[row_i][col_i].z = 0;
 		}
 	}
-}
-
-bool	is_valid_elements(char **elements, int num)
-{
-	return (true);
 }
 
 static void	set_z_and_color(t_vector *vec, char **elements, int num)
@@ -67,7 +61,7 @@ void	set_vectors(t_fdf *fdf, t_slist *file_map)
 		while (++col_i < fdf->map_col)
 		{
 			dot_elements = fdf_split(line_elements[col_i], ',', &num);
-			if (dot_elements == NULL || !is_valid_elements(dot_elements, num))
+			if (dot_elements == NULL)
 				free_fdf_and_elements(fdf, file_map, line_elements);
 			set_z_and_color(&(fdf->vecs[row_i][col_i]), dot_elements, num);
 			free_2d_arr((void **)dot_elements, -1);
