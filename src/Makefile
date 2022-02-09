@@ -6,7 +6,7 @@
 #    By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/05 16:47:09 by jkosaka           #+#    #+#              #
-#    Updated: 2022/02/09 13:56:02 by jkosaka          ###   ########.fr        #
+#    Updated: 2022/02/09 14:10:17 by jkosaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ MLX := ../libmlx.a
 
 CC := cc
 
-CFLAGS := -Wall -Wextra -Werror -framework OpenGL -framework AppKit
+CFLAGS := -Wall -Wextra -Werror #-framework OpenGL -framework AppKit
 
 MAND := main.c
 
@@ -42,7 +42,7 @@ endif
 
 $(NAME) : $(OBJS)
 	make -C ../utils
-	make -C ../minilibx_macos
+	make -C ../minilibx-linux
 	$(CC) $(CFLAGS) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME) $(OBJS) $(LIBUTIL) $(MLX)
 
 all : $(NAME)
@@ -59,7 +59,7 @@ bonus : all
 clean :
 #make clean -C ../libft
 #make clean -C ../utils
-#make clean -C ../minilibx_macos
+#make clean -C ../minilibx-linux
 	$(RM) $(OBJS) $(MAND_OBJS) $(BNS_OBJS)
 
 fclean : clean
@@ -72,7 +72,7 @@ re : fclean all
 fullclean : clean
 	make fclean -C ../libft
 	make fclean -C ../utils
-	make clean -C ../minilibx_macos
+	make clean -C ../minilibx-linux
 	$(RM) $(NAME) $(LIBUTIL) $(MLX)
 
 PHONY : fclean clean all re test retest
