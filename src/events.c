@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 15:47:42 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/08 23:58:13 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/09 17:54:11 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int	mouse_hook(int button, int x, int y, t_fdf *fdf)
 	double	coef;
 
 	coef = M_PI / ROTATE_RATE / 400;
-	diff_x = -((x - WIN_CENTER) - fdf->origin.x);
-	diff_y = -((y - WIN_CENTER) - fdf->origin.y);
+	diff_x = -((x - WIN_MID) - fdf->origin.x);
+	diff_y = -((y - WIN_MID) - fdf->origin.y);
 	if (button == ON_MOUSEUP)
 		update_vecs(fdf, rotate_around_x_axis, M_PI / M_ROTATE_RATE);
 	else if (button == ON_MOUSEDOWN)
