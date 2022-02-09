@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 14:48:41 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/09 18:14:54 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/09 18:16:17 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ void	fdf(char *filename)
 	t_fdf		fdf;
 	t_slist		*file_map;
 
-	printf("61\n");
 	fd = open(filename, R_OK);
 	if (fd == -1)
 	{
@@ -67,6 +66,7 @@ void	fdf(char *filename)
 	}
 	printf("68\n");
 	init_fdf(&fdf);
+	printf("69\n");
 	file_map = get_file_map(fd);
 	if (!file_map)
 		free_fdf(&fdf, file_map, true);
