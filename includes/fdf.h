@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 15:14:49 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/09 14:03:04 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/09 17:25:29 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,10 @@ typedef struct s_fdf {
 
 /*  keyboard and mouse move  */
 enum {
-	ON_KEYDOWN = 125,
-	ON_KEYUP = 126,
-	ON_KEYRIGHT = 124,
-	ON_KEYLEFT = 123,
+	ON_KEYLEFT = 65361,
+	ON_KEYUP = 65362,
+	ON_KEYRIGHT = 65363,
+	ON_KEYDOWN = 65364,
 	ON_KEYW = 13,
 	ON_KEYS = 1,
 	ON_KEYH = 4,
