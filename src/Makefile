@@ -6,7 +6,7 @@
 #    By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/05 16:47:09 by jkosaka           #+#    #+#              #
-#    Updated: 2022/02/09 22:00:04 by jkosaka          ###   ########.fr        #
+#    Updated: 2022/02/09 22:05:36 by jkosaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,4 +64,4 @@ fclean : clean
 
 re : fclean all
 
-PHONY : fclean clean all re test retest
+PHONY : fclean clean all re
