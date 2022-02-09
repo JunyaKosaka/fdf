@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 15:14:49 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/09 17:29:53 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/09 17:33:26 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 
 # define SHIFT_MOVE 50
 # define ARGC 2
-# define WIN_SIZE 1000
-# define WIN_CENTER 500
+# define WIN_SIZE 800
+# define WIN_CENTER 400
 # define SCALE_XY 300
 # define XY_BASE 5
 # define SCALE_Z 0.8
@@ -27,7 +27,7 @@
 # define M_ROTATE_RATE 20
 # define ZOOM_RATE 1.3
 # define ALTITUDE_RATE 1.3
-# define DELTA_RATIO 0.2
+# define DELTA_RATIO 0.4
 # define WHITE 0xEEDDDD
 # define RED 0xFF0000
 # define GREEN 0x00FF00
