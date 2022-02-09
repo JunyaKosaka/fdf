@@ -6,7 +6,7 @@
 #    By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/05 16:47:09 by jkosaka           #+#    #+#              #
-#    Updated: 2022/02/09 14:28:47 by jkosaka          ###   ########.fr        #
+#    Updated: 2022/02/09 15:06:20 by jkosaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,8 @@ OBJS := $(SRCS:%.c=%.o)
 
 LIBUTIL := ../utils/libutil.a
 
-# MLX := ../libmlx.a
-MLX := ../minilibx-linux/libmlx.a
+MLX := ../libmlx.a
+# MLX := ../minilibx-linux/libmlx.a
 
 CC := cc
 
@@ -43,21 +43,21 @@ endif
 
 $(NAME) : $(OBJS)
 	make -C ../utils
-#make -C ../minilibx_macos
+	make -C ../minilibx_macos
 #make -C ../minilibx-linux
-	$(CC) $(CFLAGS) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME) $(OBJS) $(LIBUTIL) $(MLX)
-#$(CC) $(CFLAGS) -framework OpenGL -framework AppKit -o $(NAME) $(OBJS) $(LIBUTIL) $(MLX)
+#$(CC) $(CFLAGS) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME) $(OBJS) $(LIBUTIL) $(MLX)
+	$(CC) $(CFLAGS) -framework OpenGL -framework AppKit -o $(NAME) $(OBJS) $(LIBUTIL) $(MLX)
 
 all : $(NAME)
 
 bonus : all
 	make WITH_BONUS=1
 
-# .c.o :
-# 	$(CC) -c $< -o $@
+.c.o :
+	$(CC) -c $< -o $@
 
-%.o: %.c
-	$(CC) -Wall -Wextra -Werror -I/usr/include -Imlx_linux -O3 -c $< -o $@
+# %.o: %.c
+# 	$(CC) -Wall -Wextra -Werror -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
 clean :
 #make clean -C ../libft
@@ -75,7 +75,7 @@ re : fclean all
 fullclean : clean
 	make fclean -C ../libft
 	make fclean -C ../utils
-#make clean -C ../minilibx_macos
+	make clean -C ../minilibx_macos
 	$(RM) $(NAME) $(LIBUTIL) $(MLX)
 
 PHONY : fclean clean all re test retest
