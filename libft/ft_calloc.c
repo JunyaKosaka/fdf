@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 10:25:31 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/31 21:14:47 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/09 14:07:30 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	is_over(size_t x, size_t y)
 {
-	return (y && x > SIZE_MAX / y);
+	return (y && x > SSIZE_MAX / y);
 }
 
 void	*ft_calloc(size_t count, size_t size)
