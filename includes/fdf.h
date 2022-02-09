@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 15:14:49 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/09 12:22:04 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/09 14:03:04 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ void		free_2d_arr(void **arr, int map_col);
 void		free_fdf(t_fdf *fdf, t_slist *file_map, bool is_error);
 void		init_vecs(t_fdf *fdf);
 void		draw_map(t_fdf *fdf);
-void		draw_line(t_data *img, t_vector start, t_vector end, t_fdf *fdf);
+void		draw_line(t_data *img, t_vector start, t_vector end);
 t_vector	get_internal_vector(t_vector start, t_vector end, double ratio);
 int			mouse_hook(int button, int x, int y, t_fdf *fdf);
 int			key_hook(int keycode, t_fdf *fdf);

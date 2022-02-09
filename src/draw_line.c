@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 02:21:37 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/08 02:25:08 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/09 14:02:36 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 }
 
 /*  draw dot on minilibx image. return true if can draw  */
-static bool	draw_dot(t_vector vec, t_data *img, t_fdf *fdf)
+static bool	draw_dot(t_vector vec, t_data *img)
 {
 	int	mlx_x;
 	int	mlx_y;
@@ -37,20 +37,20 @@ static bool	draw_dot(t_vector vec, t_data *img, t_fdf *fdf)
 }
 
 /*  draw line between two vectors  */
-void	draw_line(t_data *img, t_vector start, t_vector end, t_fdf *fdf)
+void	draw_line(t_data *img, t_vector start, t_vector end)
 {
 	double		ratio;
 	double		diff;
 	t_vector	target;
 
-	if (!draw_dot(start, img, fdf) && !draw_dot(end, img, fdf))
+	if (!draw_dot(start, img) && !draw_dot(end, img))
 		return ;
 	diff = max_abs_3(end.x - start.x, end.y - start.y, end.z - start.z);
 	ratio = 0;
 	while (ratio <= 1)
 	{
 		target = get_internal_vector(start, end, ratio);
-		draw_dot(target, img, fdf);
+		draw_dot(target, img);
 		ratio += (double)DELTA_RATIO / diff;
 	}
 }
