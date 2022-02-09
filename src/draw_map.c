@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 10:32:44 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/08 23:56:01 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/09 14:01:10 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ static void	put_description(t_fdf *fdf)
 /*  draw whole map  */
 void	draw_map(t_fdf *fdf)
 {
-	t_vector	vec;
 	int			row_i;
 	int			col_i;
 
