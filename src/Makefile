@@ -6,7 +6,7 @@
 #    By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/05 16:47:09 by jkosaka           #+#    #+#              #
-#    Updated: 2022/02/09 17:15:13 by jkosaka          ###   ########.fr        #
+#    Updated: 2022/02/09 17:18:04 by jkosaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,7 @@ $(NAME) : $(OBJS)
 	make -C ../utils
 #make -C ../minilibx_macos
 	make -C ../minilibx-linux
-	cc $(CFLAGS) ../src/*.c ../utils/libutil.a ../minilibx-linux/*.a -lXext -lX11 -lm -o ../fdf
+	$(CC) $(CFLAGS) -o $(NAME) ../src/*.c ../utils/libutil.a ../minilibx-linux/*.a -lXext -lX11 -lm
 #$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBUTIL) $(MLX)
 #$(CC) $(CFLAGS) -framework OpenGL -framework AppKit -o $(NAME) $(OBJS) $(LIBUTIL) $(MLX)
 
