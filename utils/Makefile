@@ -6,7 +6,7 @@
 #    By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/05 16:52:55 by jkosaka           #+#    #+#              #
-#    Updated: 2022/02/06 11:23:46 by jkosaka          ###   ########.fr        #
+#    Updated: 2022/02/09 11:01:32 by jkosaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,9 @@ SRCS := error_handler.c get_next_line.c get_next_line_utils.c \
 
 OBJS := $(SRCS:%.c=%.o)
 
-FLAGS := -Wall -Wextra -Werror
+CC := cc
+
+CFLAGS := -Wall -Wextra -Werror
 
 $(NAME) : $(OBJS)
 	make $(FLAGS) -C ../libft
@@ -29,7 +31,7 @@ $(NAME) : $(OBJS)
 all	: $(NAME)
 
 %.o : %.c $(HEADERFILE)
-	gcc $(FLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean :
 #make clean -C ../libft

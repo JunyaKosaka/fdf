@@ -6,7 +6,7 @@
 #    By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/08 15:01:29 by jkosaka           #+#    #+#              #
-#    Updated: 2022/02/05 17:15:47 by jkosaka          ###   ########.fr        #
+#    Updated: 2022/02/09 11:00:14 by jkosaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,7 @@ $(NAME) : $(OBJS)
 all	: $(NAME)
 
 %.o : %.c $(HEADERFILE)
-	gcc $(FLAGS) -c $< -o $@
+	cc $(FLAGS) -c $< -o $@
 
 bonus :
 	make WITH_BONUS=1

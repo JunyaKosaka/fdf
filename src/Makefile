@@ -6,7 +6,7 @@
 #    By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/05 16:47:09 by jkosaka           #+#    #+#              #
-#    Updated: 2022/02/08 14:50:11 by jkosaka          ###   ########.fr        #
+#    Updated: 2022/02/09 11:00:19 by jkosaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ LIBUTIL := ../utils/libutil.a
 
 MLX := ../libmlx.a
 
-CC := gcc
+CC := cc
 
 CFLAGS := -Wall -Wextra -Werror -framework OpenGL -framework AppKit
 
