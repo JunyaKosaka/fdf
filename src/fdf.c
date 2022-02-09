@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 14:48:41 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/08 23:54:07 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/09 13:57:28 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ void	fdf(char *filename)
 	int			fd;
 	t_fdf		fdf;
 	t_slist		*file_map;
-	t_data		img;
 
 	fd = open(filename, R_OK);
 	if (fd == -1)
