@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 15:47:42 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/10 10:40:01 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/10 14:55:15 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	mouse_hook(int button, int x, int y, t_fdf *fdf)
 	coef = M_PI / ROTATE_RATE / 400;
 	diff_x = -((x - WIN_MID) - fdf->origin.x);
 	diff_y = -((y - WIN_MID) - fdf->origin.y);
+	mlx_destroy_image(fdf->mlx, fdf->img.img);
 	if (button == ON_MOUSEUP)
 		update_vecs(fdf, rotate_around_x_axis, M_PI / M_ROTATE_RATE);
 	else if (button == ON_MOUSEDOWN)
@@ -62,6 +63,7 @@ int	key_hook(int keycode, t_fdf *fdf)
 {
 	if (keycode == ON_ESC)
 		free_fdf(fdf, NULL, false);
+	printf("%d\n", keycode);
 	mlx_destroy_image(fdf->mlx, fdf->img.img);
 	if (keycode == ON_KEYUP)
 		update_vecs(fdf, rotate_around_x_axis, M_PI / ROTATE_RATE);
