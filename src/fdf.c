@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 14:48:41 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/10 11:07:41 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/10 11:09:40 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	init_fdf(t_fdf *fdf)
 {
 	fdf->vecs = NULL;
 	fdf->flats = NULL;
+	fdf->mlx = NULL;
+	fdf->sin = NULL;
 	fdf->origin.x = 0;
 	fdf->origin.y = 0;
 	fdf->origin.z = 0;
