@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 14:48:41 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/10 15:17:38 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/10 15:19:11 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,12 @@ void	init_fdf(t_fdf *fdf)
 	fdf->origin.z = 0;
 }
 
-void	init_mlx(t_fdf *fdf)
-{
-	fdf->mlx = mlx_init();
-	fdf->win = mlx_new_window(fdf->mlx, WIN_SIZE, WIN_SIZE, " FDF ");
-	// fdf->img.img = mlx_new_image(fdf->mlx, WIN_SIZE, WIN_SIZE);
-	// fdf->img.addr = mlx_get_data_addr(fdf->img.img, &fdf->img.bits_per_pixel, \
-	// 		&fdf->img.line_length, &fdf->img.endian);
-}
+// void	init_mlx(t_fdf *fdf)
+// {
+// 	// fdf->img.img = mlx_new_image(fdf->mlx, WIN_SIZE, WIN_SIZE);
+// 	// fdf->img.addr = mlx_get_data_addr(fdf->img.img, &fdf->img.bits_per_pixel, \
+// 	// 		&fdf->img.line_length, &fdf->img.endian);
+// }
 
 void	prepare_vecs(t_fdf *fdf, t_slist *file_map)
 {
@@ -79,6 +77,8 @@ void	fdf(char *filename)
 	set_vectors(&fdf, file_map);
 	slist_clear(&file_map);
 	init_vecs(&fdf);
-	init_mlx(&fdf);
+	fdf.mlx = mlx_init();
+	fdf.win = mlx_new_window(fdf.mlx, WIN_SIZE, WIN_SIZE, " FDF ");
+	// init_mlx(&fdf);
 	draw_map(&fdf);
 }
