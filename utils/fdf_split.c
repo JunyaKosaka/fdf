@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 01:12:07 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/06 08:33:41 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/10 16:56:25 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,19 +36,20 @@ static char	**rec(char **container, char const *s, char c, size_t ind)
 	return (container);
 }
 
-char	**fdf_split(char const *s, char c, int *words)
+char	**ft_split(char const *s, char c, int *words)
 {
+	char	**container;
 	char	**ret;
 
 	if (!s)
 		return (NULL);
-	*words = count_words(s, c);
-	ret = (char **)malloc(sizeof(char *) * (*words + 1));
-	if (!ret)
+	*words = word_count(s, c);
+	container = (char **)malloc(sizeof(char *) * (*words + 1));
+	if (!container)
 		return (NULL);
-	ret[*words] = NULL;
-	ret = rec(ret, s, c, 0);
+	container[words] = NULL;
+	ret = rec(container, s, c, 0);
 	if (!ret)
-		free(ret);
+		free(container);
 	return (ret);
 }
