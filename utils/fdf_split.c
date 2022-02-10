@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 01:12:07 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/10 16:56:25 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/10 16:57:28 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static char	**rec(char **container, char const *s, char c, size_t ind)
 	return (container);
 }
 
-char	**ft_split(char const *s, char c, int *words)
+char	**fdf_split(char const *s, char c, int *words)
 {
 	char	**container;
 	char	**ret;
