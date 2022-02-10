@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 14:54:50 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/10 12:16:40 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/10 14:52:42 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,13 @@ static void	set_z_and_color(t_vector *vec, char **elements, int num)
 		(*vec).color = hex_atoi(elements[1]);
 }
 
-static	void	free_fdf_and_elements(t_fdf *fdf, t_slist *file_map, \
-									char **line_elements)
+static	void	free_fdf_elements(t_fdf *fdf, t_slist *file_map, \
+						char **line_elements, char **dot_elements)
 {
 	free_2d_arr((void **)line_elements, -1);
 	free_fdf(fdf, file_map, true);
+	if (dot_elements)
+		free_2d_arr((void **)dot_elements, -1);
 }
 
 void	set_vectors(t_fdf *fdf, t_slist *file_map)
@@ -61,8 +63,8 @@ void	set_vectors(t_fdf *fdf, t_slist *file_map)
 		while (++col_i < fdf->map_col)
 		{
 			dot_elements = fdf_split(line_elements[col_i], ',', &num);
-			if (dot_elements == NULL)
-				free_fdf_and_elements(fdf, file_map, line_elements);
+			if (dot_elements == NULL || num > 2)
+				free_fdf_elements(fdf, file_map, line_elements, dot_elements);
 			set_z_and_color(&(fdf->vecs[row_i][col_i]), dot_elements, num);
 			free_2d_arr((void **)dot_elements, -1);
 		}
