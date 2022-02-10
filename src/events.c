@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 15:47:42 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/10 14:55:15 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/10 14:57:08 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,9 @@ void	key_hook_sub(int keycode, t_fdf *fdf)
 		update_vecs(fdf, shift_y, -SHIFT_MOVE);
 	else if (keycode == ON_KEYL)
 		update_vecs(fdf, shift_x, SHIFT_MOVE);
-	else if (keycode == ON_KEYPLUS)
+	else if (keycode == ON_KEYZ)
 		update_vecs(fdf, zoom, ZOOM_RATE);
-	else if (keycode == ON_KEYMINUS)
+	else if (keycode == ON_KEYX)
 		update_vecs(fdf, zoom, 1 / ZOOM_RATE);
 	else if (keycode == ON_KEYW)
 		raise_altitude(fdf, ALTITUDE_RATE);
