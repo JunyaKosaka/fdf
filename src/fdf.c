@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 14:48:41 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/10 17:01:35 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/10 17:22:03 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,12 @@ void	fdf(char *filename)
 		exit(EXIT_FAILURE);
 	}
 	init_fdf(&fdf);
+	printf("65\n");
 	file_map = get_file_map(fd);
+	printf("65\n");
 	if (!file_map)
 		free_fdf(&fdf, file_map, true);
+	printf("65\n");
 	get_map_size(&fdf, file_map);
 	prepare_vecs(&fdf, file_map);
 	set_vectors(&fdf, file_map);
