@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 18:21:02 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/10 17:24:34 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/10 17:25:48 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ t_slist	*get_file_map(int fd)
 		printf("a");
 		if (!is_ok || (one_line && column != count_words(one_line, ' '))) // 変更
 		{
+			printf("\n %zu %zu", column, count_words(one_line, ' '));
 			printf("\n%zu @@@@@@@\n", slist_size(file_map));
 			slist_clear(&file_map);
 			return (free_one_line(one_line));
