@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 01:12:07 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/10 16:57:28 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/10 16:57:43 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ char	**fdf_split(char const *s, char c, int *words)
 	container = (char **)malloc(sizeof(char *) * (*words + 1));
 	if (!container)
 		return (NULL);
-	container[words] = NULL;
+	container[*words] = NULL;
 	ret = rec(container, s, c, 0);
 	if (!ret)
 		free(container);
