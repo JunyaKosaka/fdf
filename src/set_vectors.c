@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 14:54:50 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/10 00:16:32 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/10 11:15:04 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,15 @@ void	set_vectors(t_fdf *fdf, t_slist *file_map)
 	row_i = -1;
 	while (++row_i < fdf->map_row)
 	{
+		printf("^^^57\n");
 		line_elements = ft_split(file_map->content, ' ');
 		if (!line_elements)
 			free_fdf(fdf, file_map, true);
 		col_i = -1;
+		printf("^^^62\n");
 		while (++col_i < fdf->map_col)
 		{
+			printf("^^^65\n");
 			dot_elements = fdf_split(line_elements[col_i], ',', &num);
 			if (dot_elements == NULL)
 				free_fdf_and_elements(fdf, file_map, line_elements);
