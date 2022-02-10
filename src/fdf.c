@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 14:48:41 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/10 00:16:02 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/10 10:39:15 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,10 @@ void	init_fdf(t_fdf *fdf)
 	fdf->origin.x = 0;
 	fdf->origin.y = 0;
 	fdf->origin.z = 0;
+}
+
+void	init_mlx(t_fdf *fdf)
+{
 	fdf->mlx = mlx_init();
 	fdf->win = mlx_new_window(fdf->mlx, WIN_SIZE, WIN_SIZE, " FDF ");
 	fdf->img.img = mlx_new_image(fdf->mlx, WIN_SIZE, WIN_SIZE);
@@ -73,5 +77,6 @@ void	fdf(char *filename)
 	set_vectors(&fdf, file_map);
 	slist_clear(&file_map);
 	init_vecs(&fdf);
+	init_fdf(&fdf);
 	draw_map(&fdf);
 }
