@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 01:23:02 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/10 12:14:31 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/10 12:16:23 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ static void	change_center(t_fdf *fdf)
 
 	row_center = (double)(fdf->map_row - 1) / 2;
 	col_center = (double)(fdf->map_col - 1) / 2;
-	printf("%f %f\n", row_center, col_center);
 	row_i = -1;
 	while (++row_i < fdf->map_row)
 	{
