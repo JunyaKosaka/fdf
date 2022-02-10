@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 18:36:06 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/10 11:22:07 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/10 14:41:57 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,6 @@ int	slist_size(t_slist *lst)
 	ret = 0;
 	while (lst->next)
 	{
-		printf("!!!!78\n");
-		printf("%s\n", lst->content);
 		ret++;
 		lst = lst->next;
 	}
