@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:20:30 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/08 23:57:33 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/10 11:08:59 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,9 @@ void	free_fdf(t_fdf *fdf, t_slist *file_map, bool is_error)
 		free_2d_arr((void **)fdf->vecs, fdf->map_row);
 	if (fdf->flats)
 		free_2d_arr((void **)fdf->flats, fdf->map_row);
+	printf("42\n");
 	mlx_destroy_window(fdf->mlx, fdf->win);
+	printf("43\n");
 	free(fdf->mlx);
 	fdf->mlx = NULL;
 	if (is_error)
