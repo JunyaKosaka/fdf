@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 14:48:41 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/10 10:39:15 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/10 10:57:36 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,6 @@ void	fdf(char *filename)
 	set_vectors(&fdf, file_map);
 	slist_clear(&file_map);
 	init_vecs(&fdf);
-	init_fdf(&fdf);
+	init_mlx(&fdf);
 	draw_map(&fdf);
 }

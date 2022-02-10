@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 10:32:44 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/10 10:39:27 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/10 10:57:07 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void	draw_map(t_fdf *fdf)
 	int			row_i;
 	int			col_i;
 
+	
 	fdf->img.img = mlx_new_image(fdf->mlx, WIN_SIZE, WIN_SIZE);
 	fdf->img.addr = mlx_get_data_addr(fdf->img.img, &fdf->img.bits_per_pixel, \
 			&fdf->img.line_length, &fdf->img.endian);
