@@ -6,7 +6,7 @@
 #    By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/05 16:47:09 by jkosaka           #+#    #+#              #
-#    Updated: 2022/02/14 00:50:46 by jkosaka          ###   ########.fr        #
+#    Updated: 2022/02/14 00:53:03 by jkosaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ MLX := ../minilibx-linux/libmlx.a
 
 CC := cc
 
-CFLAGS := -Wall -Wextra -Werror -lXext -lX11 -lm
+CFLAGS := -Wall -Wextra -Werror
 
 MAND := main.c
 
