@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:20:30 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/10 15:21:13 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/14 01:12:43 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ void	free_fdf(t_fdf *fdf, t_slist *file_map, bool is_error)
 		free(fdf->mlx);
 		fdf->mlx = NULL;
 	}
-	// system("leaks -q fdf");
 	if (is_error)
 		exit(error_handler());
 	exit(0);
