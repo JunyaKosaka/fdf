@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 01:16:51 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/10 12:06:33 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/14 01:11:44 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	hex_atoi(const char *str)
 	while (is_space(*str))
 		str++;
 	if (ft_strncmp(str, "0x", 2) != 0)
-		return (WHITE); // 変更
+		return (WHITE);
 	str += 2;
 	if (!is_hexnum(str[0]))
 		return (WHITE);
