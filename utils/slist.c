@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 18:36:06 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/14 23:15:06 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/14 23:23:44 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,5 @@ int	slist_size(t_slist *lst)
 		ret++;
 		lst = lst->next;
 	}
-	printf("slist_size: %d\n", ret);
 	return (ret);
 }
