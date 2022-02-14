@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 18:21:02 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/10 17:36:43 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/14 23:09:47 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ t_slist	*get_file_map(int fd)
 	file_map = NULL;
 	while (one_line != NULL)
 	{
+		printf("43\n");
 		new = slist_new(one_line);
 		if (!new)
 			return (NULL);
