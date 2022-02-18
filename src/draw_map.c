@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 10:32:44 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/10 14:59:39 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/19 00:42:59 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,10 @@ static void	put_description(t_fdf *fdf)
 					"Rotate    : Arrow key");
 }
 
-static void	destroy(t_fdf *fdf)
+static int	destroy(t_fdf *fdf)
 {
 	free_fdf(fdf, NULL, false);
+	return (0);
 }
 
 /*  draw whole map  */
