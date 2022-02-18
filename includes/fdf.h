@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 15:14:49 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/10 14:57:48 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/19 00:55:03 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,5 @@ void		raise_altitude(t_fdf *fdf, double altitude);
 t_vector	extend_vec(t_vector vec, double ratio);
 t_vector	sum_vec(t_vector a, t_vector b);
 t_vector	diff_vec(t_vector a, t_vector b);
-void		show_vec(t_vector vec); // delete
 
 #endif  // FDF_H
