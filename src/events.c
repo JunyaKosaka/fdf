@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 15:47:42 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/20 01:50:44 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/20 01:59:07 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ int	key_hook(int keycode, t_fdf *fdf)
 {
 	if (keycode == ON_ESC)
 		free_fdf(fdf, NULL, false);
+	printf("keycode: %d\n", keycode);
 	mlx_destroy_image(fdf->mlx, fdf->img.img);
 	if (keycode == ON_KEYUP)
 		update_vecs(fdf, rotate_around_x_axis, M_PI / ROTATE_RATE);
