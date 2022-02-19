@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 15:47:42 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/20 01:59:07 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/20 02:00:56 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,13 @@ void	key_hook_sub(int keycode, t_fdf *fdf)
 	else if (keycode == ON_KEYZ)
 		update_vecs(fdf, zoom, ZOOM_RATE);
 	else if (keycode == ON_KEYX)
-		fdf->cabinet = true;
-		// update_vecs(fdf, zoom, 1 / ZOOM_RATE);
+		update_vecs(fdf, zoom, 1 / ZOOM_RATE);
 	else if (keycode == ON_KEYW)
 		raise_altitude(fdf, ALTITUDE_RATE);
 	else if (keycode == ON_KEYS)
 		raise_altitude(fdf, 1 / ALTITUDE_RATE);
+	else if (keycode == ON_KEYC)
+		fdf->cabinet ^= 1;
 }
 
 int	key_hook(int keycode, t_fdf *fdf)
