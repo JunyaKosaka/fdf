@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 02:21:37 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/20 01:54:05 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/20 01:56:21 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	draw_line(t_data *img, t_vector start, t_vector end, bool cabinet)
 	double		diff;
 	t_vector	target;
 
-	if (!draw_dot(start, img, is_cabinet) && !draw_dot(end, img, is_cabinet))
+	if (!draw_dot(start, img, cabinet) && !draw_dot(end, img, cabinet))
 		return ;
 	diff = max_abs_3(end.x - start.x, end.y - start.y, end.z - start.z);
 	ratio = 0;
