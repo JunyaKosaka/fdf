@@ -6,13 +6,13 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 14:48:41 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/19 18:34:08 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/19 18:35:32 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-void	init_fdf(t_fdf *fdf)
+void	init_fdf(t_fdf *fdf, t_slist *file_map)
 {
 	fdf->vecs = NULL;
 	fdf->flats = NULL;
@@ -65,7 +65,7 @@ void	fdf(char *filename)
 	file_map = get_file_map(fd);
 	if (!file_map)
 		free_fdf(NULL, file_map, true);
-	init_fdf(&fdf);
+	init_fdf(&fdf, file_map);
 	prepare_vecs(&fdf, file_map);
 	set_vectors(&fdf, file_map);
 	slist_clear(&file_map);
