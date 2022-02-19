@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 02:21:37 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/20 01:52:31 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/20 01:54:05 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static bool	draw_dot(t_vector vec, t_data *img, bool is_cabinet)
 }
 
 /*  draw line between two vectors  */
-void	draw_line(t_data *img, t_vector start, t_vector end, bool is_cabinet)
+void	draw_line(t_data *img, t_vector start, t_vector end, bool cabinet)
 {
 	double		ratio;
 	double		diff;
@@ -55,7 +55,7 @@ void	draw_line(t_data *img, t_vector start, t_vector end, bool is_cabinet)
 	while (ratio <= 1)
 	{
 		target = get_internal_vector(start, end, ratio);
-		draw_dot(target, img, is_cabinet);
+		draw_dot(target, img, cabinet);
 		ratio += (double)DELTA_RATIO / diff;
 	}
 }

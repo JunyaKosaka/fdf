@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 10:32:44 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/19 00:42:59 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/20 01:55:55 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ static void	draw_two_lines(t_fdf *fdf, t_data *img, int row_i, int col_i)
 
 	vec = fdf->vecs[row_i][col_i];
 	if (row_i)
-		draw_line(img, vec, fdf->vecs[row_i - 1][col_i]);
+		draw_line(img, vec, fdf->vecs[row_i - 1][col_i], fdf->cabinet);
 	if (col_i)
-		draw_line(img, vec, fdf->vecs[row_i][col_i - 1]);
+		draw_line(img, vec, fdf->vecs[row_i][col_i - 1], fdf->cabinet);
 }
 
 static void	my_mlx_string_put(t_fdf *fdf, int x, int y, char *str)
