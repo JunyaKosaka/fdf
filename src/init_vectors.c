@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 01:23:02 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/10 12:16:23 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/20 01:31:22 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ static void	scale_up(t_fdf *fdf)
 		col_i = -1;
 		while (++col_i < fdf->map_col)
 		{
-			fdf->vecs[row_i][col_i].y *= (double)SCALE_XY / divide + XY_BASE;
 			fdf->vecs[row_i][col_i].x *= (double)SCALE_XY / divide + XY_BASE;
+			fdf->vecs[row_i][col_i].y *= (double)SCALE_XY / divide + XY_BASE;
 			fdf->vecs[row_i][col_i].z *= (double)SCALE_Z;
 		}
 	}
@@ -59,6 +59,6 @@ void	init_vecs(t_fdf *fdf)
 	change_center(fdf);
 	scale_up(fdf);
 	copy_vecs_to_flats(fdf);
-	update_vecs(fdf, rotate_horizontally, M_PI / 4);
+	update_vecs(fdf, rotate_horizontally, M_PI_4);
 	update_vecs(fdf, rotate_around_x_axis, acos((double)1 / sqrt(5)));
 }
