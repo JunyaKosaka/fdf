@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 15:14:49 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/19 00:55:03 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/20 01:44:05 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ typedef struct s_fdf {
 	void		*win;
 	int			map_row;
 	int			map_col;
+	bool		cabinet;
 }	t_fdf;
 
 /*  keyboard and mouse move  */

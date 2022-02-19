@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 14:48:41 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/19 18:36:07 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/20 01:44:40 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	init_fdf(t_fdf *fdf, t_slist *file_map)
 	fdf->origin.x = 0;
 	fdf->origin.y = 0;
 	fdf->origin.z = 0;
+	fdf->cabinet = false;
 	get_map_size(fdf, file_map);
 	prepare_vecs(fdf, file_map);
 }

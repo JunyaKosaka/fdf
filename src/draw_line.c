@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 02:21:37 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/09 17:54:11 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/20 01:45:11 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ static bool	draw_dot(t_vector vec, t_data *img)
 
 	mlx_x = vec.x + WIN_MID;
 	mlx_y = vec.y + WIN_MID;
+	if ()
 	if (mlx_x <= 0 || WIN_SIZE <= mlx_x)
 		return (false);
 	if (mlx_y <= 0 || WIN_SIZE <= mlx_y)
