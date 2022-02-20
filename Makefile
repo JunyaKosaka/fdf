@@ -6,7 +6,7 @@
 #    By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/05 16:45:20 by jkosaka           #+#    #+#              #
-#    Updated: 2022/02/20 09:33:44 by jkosaka          ###   ########.fr        #
+#    Updated: 2022/02/20 09:37:33 by jkosaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ fclean :
 re : fclean all
 
 norm :
-	norminette src uitls libft
+	norminette src utils libft
 
 empty :
 
