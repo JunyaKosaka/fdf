@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 15:47:42 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/20 13:17:49 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/20 13:30:30 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,8 @@ int	key_hook(int keycode, t_fdf *fdf)
 		update_vecs(fdf, green, false);
 	else if (keycode == ON_KEYB)
 		update_vecs(fdf, blue, false);
+	else if (keycode == ON_KEYO)
+		update_vecs(fdf, reset_center, false);
 	key_hook_sub(keycode, fdf);
 	render_map(fdf);
 	return (0);

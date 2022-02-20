@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 09:05:15 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/09 14:00:35 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/20 13:28:29 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,11 @@ void	update_vecs(t_fdf *fdf, void (*matrix)(t_vector *, t_vector origin, \
 		fdf->origin.x += ratio;
 	if (matrix == shift_y)
 		fdf->origin.y += ratio;
+	if (matrix == reset_center)
+	{
+		fdf->origin.x = 0;
+		fdf->origin.y = 0;
+	}
 }
 
 void	raise_altitude(t_fdf *fdf, double ratio)
