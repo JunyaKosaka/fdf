@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 15:14:49 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/20 13:14:56 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/20 13:18:25 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,8 @@ void		shift_x(t_vector *vec, t_vector origin, double move);
 void		shift_y(t_vector *vec, t_vector origin, double move);
 void		raise_altitude(t_fdf *fdf, double altitude);
 void		red(t_vector *vec, t_vector origin, double move);
+void		green(t_vector *vec, t_vector origin, double move);
+void		blue(t_vector *vec, t_vector origin, double move);
 t_vector	extend_vec(t_vector vec, double ratio);
 t_vector	sum_vec(t_vector a, t_vector b);
 t_vector	diff_vec(t_vector a, t_vector b);
