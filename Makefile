@@ -6,7 +6,7 @@
 #    By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/05 16:45:20 by jkosaka           #+#    #+#              #
-#    Updated: 2022/02/09 17:57:43 by jkosaka          ###   ########.fr        #
+#    Updated: 2022/02/20 09:33:44 by jkosaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,9 @@ fclean :
 
 re : fclean all
 
+norm :
+	norminette src uitls libft
+
 empty :
 
-.PHONY: all clean fclean re bonus empty
+.PHONY: all clean fclean re bonus norm empty

@@ -6,12 +6,11 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 14:48:41 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/20 09:22:17 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/20 09:32:38 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
-
 
 void	prepare_vecs(t_fdf *fdf, t_slist *file_map)
 {

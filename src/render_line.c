@@ -30,8 +30,8 @@ static bool	render_dot(t_vector vec, t_data *img, bool is_cabinet)
 	mlx_y = vec.y + WIN_MID;
 	if (is_cabinet)
 	{
-		mlx_x -= vec.z / 2 * cos(M_PI_4); 
-		mlx_y += vec.z / 2 * sin(M_PI_4); 
+		mlx_x -= vec.z / 2 * cos(M_PI_4);
+		mlx_y += vec.z / 2 * sin(M_PI_4);
 	}
 	if (mlx_x <= 0 || WIN_SIZE <= mlx_x)
 		return (false);
