@@ -12,15 +12,15 @@
 
 #include "../includes/fdf.h"
 
-static void	draw_two_lines(t_fdf *fdf, t_data *img, int row_i, int col_i)
+static void	render_two_lines(t_fdf *fdf, t_data *img, int row_i, int col_i)
 {
 	t_vector	vec;
 
 	vec = fdf->vecs[row_i][col_i];
 	if (row_i)
-		draw_line(img, vec, fdf->vecs[row_i - 1][col_i], fdf->cabinet);
+		render_line(img, vec, fdf->vecs[row_i - 1][col_i], fdf->cabinet);
 	if (col_i)
-		draw_line(img, vec, fdf->vecs[row_i][col_i - 1], fdf->cabinet);
+		render_line(img, vec, fdf->vecs[row_i][col_i - 1], fdf->cabinet);
 }
 
 static void	my_mlx_string_put(t_fdf *fdf, int x, int y, char *str)
@@ -46,7 +46,7 @@ static int	destroy(t_fdf *fdf)
 	return (0);
 }
 
-/*  draw whole map  */
+/*  render whole map  */
 void	render_map(t_fdf *fdf)
 {
 	int			row_i;
@@ -60,7 +60,7 @@ void	render_map(t_fdf *fdf)
 	{
 		col_i = -1;
 		while (++col_i < fdf->map_col)
-			draw_two_lines(fdf, &fdf->img, row_i, col_i);
+			render_two_lines(fdf, &fdf->img, row_i, col_i);
 	}
 	mlx_put_image_to_window(fdf->mlx, fdf->win, fdf->img.img, 0, 0);
 	put_description(fdf);

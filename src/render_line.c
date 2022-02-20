@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_line.c                                        :+:      :+:    :+:   */
+/*   render_line.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -20,8 +20,8 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 	*(unsigned int *)dst = color;
 }
 
-/*  draw dot on minilibx image. return true if can draw  */
-static bool	draw_dot(t_vector vec, t_data *img, bool is_cabinet)
+/*  render dot on minilibx image. return true if can render  */
+static bool	render_dot(t_vector vec, t_data *img, bool is_cabinet)
 {
 	int	mlx_x;
 	int	mlx_y;
@@ -41,21 +41,21 @@ static bool	draw_dot(t_vector vec, t_data *img, bool is_cabinet)
 	return (true);
 }
 
-/*  draw line between two vectors  */
-void	draw_line(t_data *img, t_vector start, t_vector end, bool cabinet)
+/*  render line between two vectors  */
+void	render_line(t_data *img, t_vector start, t_vector end, bool cabinet)
 {
 	double		ratio;
 	double		diff;
 	t_vector	target;
 
-	if (!draw_dot(start, img, cabinet) && !draw_dot(end, img, cabinet))
+	if (!render_dot(start, img, cabinet) && !render_dot(end, img, cabinet))
 		return ;
 	diff = max_abs_3(end.x - start.x, end.y - start.y, end.z - start.z);
 	ratio = 0;
 	while (ratio <= 1)
 	{
 		target = get_internal_vector(start, end, ratio);
-		draw_dot(target, img, cabinet);
+		render_dot(target, img, cabinet);
 		ratio += (double)DELTA_RATIO / diff;
 	}
 }
