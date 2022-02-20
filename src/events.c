@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 15:47:42 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/20 13:11:56 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/20 13:17:49 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,7 @@ void	key_hook_sub(int keycode, t_fdf *fdf)
 	else if (keycode == ON_KEYK)
 		update_vecs(fdf, shift_y, -SHIFT_MOVE);
 	else if (keycode == ON_KEYL)
-		update_vecs(fdf, red, false);
-		// update_vecs(fdf, shift_x, SHIFT_MOVE);
+		update_vecs(fdf, shift_x, SHIFT_MOVE);
 	else if (keycode == ON_KEYZ)
 		update_vecs(fdf, zoom, ZOOM_RATE);
 	else if (keycode == ON_KEYX)
@@ -76,6 +75,12 @@ int	key_hook(int keycode, t_fdf *fdf)
 		update_vecs(fdf, rotate_around_y_ordinate, -M_PI / ROTATE_RATE);
 	else if (keycode == ON_KEYLEFT)
 		update_vecs(fdf, rotate_around_y_ordinate, M_PI / ROTATE_RATE);
+	else if (keycode == ON_KEYR)
+		update_vecs(fdf, red, false);
+	else if (keycode == ON_KEYG)
+		update_vecs(fdf, green, false);
+	else if (keycode == ON_KEYB)
+		update_vecs(fdf, blue, false);
 	key_hook_sub(keycode, fdf);
 	render_map(fdf);
 	return (0);

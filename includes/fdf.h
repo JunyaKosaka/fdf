@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 15:14:49 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/20 13:08:55 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/20 13:14:56 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,9 @@ enum {
 	ON_KEYZ = 122,
 	ON_KEYX = 120,
 	ON_KEYC = 99,
+	ON_KEYR = 114,
+	ON_KEYG = 103,
+	ON_KEYB = 98,
 	ON_MOUSEDOWN = 4,
 	ON_MOUSEUP = 5,
 	ON_MOUSERIGHT = 6,
