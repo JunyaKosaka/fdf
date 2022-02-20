@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 15:47:42 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/20 02:11:45 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/20 09:22:17 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	mouse_hook(int button, int x, int y, t_fdf *fdf)
 		update_vecs(fdf, rotate_around_x_axis, diff_y * coef);
 		update_vecs(fdf, rotate_around_y_ordinate, diff_x * coef);
 	}
-	draw_map(fdf);
+	render_map(fdf);
 	return (0);
 }
 
@@ -75,6 +75,6 @@ int	key_hook(int keycode, t_fdf *fdf)
 	else if (keycode == ON_KEYLEFT)
 		update_vecs(fdf, rotate_around_y_ordinate, M_PI / ROTATE_RATE);
 	key_hook_sub(keycode, fdf);
-	draw_map(fdf);
+	render_map(fdf);
 	return (0);
 }

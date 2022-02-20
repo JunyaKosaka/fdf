@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_map.c                                         :+:      :+:    :+:   */
+/*   render_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -47,7 +47,7 @@ static int	destroy(t_fdf *fdf)
 }
 
 /*  draw whole map  */
-void	draw_map(t_fdf *fdf)
+void	render_map(t_fdf *fdf)
 {
 	int			row_i;
 	int			col_i;
