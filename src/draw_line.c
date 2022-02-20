@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 02:21:37 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/20 09:13:00 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/20 09:26:04 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ static bool	draw_dot(t_vector vec, t_data *img, bool is_cabinet)
 	mlx_y = vec.y + WIN_MID;
 	if (is_cabinet)
 	{
-		mlx_x -= vec.z * cos(M_PI_4); 
-		mlx_y += vec.z * sin(M_PI_4); 
+		mlx_x -= vec.z / 2 * cos(M_PI_4); 
+		mlx_y += vec.z / 2 * sin(M_PI_4); 
 	}
 	if (mlx_x <= 0 || WIN_SIZE <= mlx_x)
 		return (false);
