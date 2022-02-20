@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 15:14:49 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/20 09:27:47 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/20 13:08:55 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void		free_2d_arr(void **arr, int map_col);
 void		free_fdf(t_fdf *fdf, t_slist *file_map, bool is_error);
 void		init_vecs(t_fdf *fdf);
 void		render_map(t_fdf *fdf);
-void	render_line(t_data *img, t_vector start, t_vector end, bool is_cabinet);
+void		render_line(t_data *img, t_vector start, t_vector end, bool is_cabinet);
 t_vector	get_internal_vector(t_vector start, t_vector end, double ratio);
 int			mouse_hook(int button, int x, int y, t_fdf *fdf);
 int			key_hook(int keycode, t_fdf *fdf);
@@ -111,6 +111,7 @@ void		zoom(t_vector *vec, t_vector origin, double coef);
 void		shift_x(t_vector *vec, t_vector origin, double move);
 void		shift_y(t_vector *vec, t_vector origin, double move);
 void		raise_altitude(t_fdf *fdf, double altitude);
+void		red(t_vector *vec, t_vector origin, double move);
 t_vector	extend_vec(t_vector vec, double ratio);
 t_vector	sum_vec(t_vector a, t_vector b);
 t_vector	diff_vec(t_vector a, t_vector b);

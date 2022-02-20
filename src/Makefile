@@ -6,7 +6,7 @@
 #    By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/05 16:47:09 by jkosaka           #+#    #+#              #
-#    Updated: 2022/02/20 09:27:47 by jkosaka          ###   ########.fr        #
+#    Updated: 2022/02/20 13:09:26 by jkosaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME := ../fdf
 
 SRCS := fdf.c get_file_map.c set_vectors.c free.c init_vectors.c \
 	update_vecs.c render_map.c events.c get_internal_vector.c \
-	vector_utils.c rotate_vector.c render_line.c \
+	vector_utils.c rotate_vector.c render_line.c color.c \
 
 OBJS := $(SRCS:%.c=%.o)
 

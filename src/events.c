@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 15:47:42 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/20 09:22:17 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/20 13:10:28 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ void	key_hook_sub(int keycode, t_fdf *fdf)
 	else if (keycode == ON_KEYK)
 		update_vecs(fdf, shift_y, -SHIFT_MOVE);
 	else if (keycode == ON_KEYL)
-		update_vecs(fdf, shift_x, SHIFT_MOVE);
+		update_vecs(fdf, red, false);
+		// update_vecs(fdf, shift_x, SHIFT_MOVE);
 	else if (keycode == ON_KEYZ)
 		update_vecs(fdf, zoom, ZOOM_RATE);
 	else if (keycode == ON_KEYX)
