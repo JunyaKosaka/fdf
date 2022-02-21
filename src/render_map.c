@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 09:35:04 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/21 18:28:02 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/21 18:29:58 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	render_map(t_fdf *fdf)
 	mlx_put_image_to_window(fdf->mlx, fdf->win, fdf->img.img, 0, 0);
 	put_description(fdf);
 	mlx_hook(fdf->win, ON_DESTROY, 0, destroy, fdf);
-	mlx_hook(fdf->win, ON_EXPOSE, (1<<15), expose, fdf);
+	mlx_hook(fdf->win, ON_EXPOSE, EXPOSURE_MASK, expose, fdf);
 	mlx_key_hook(fdf->win, key_hook, fdf);
 	mlx_mouse_hook(fdf->win, mouse_hook, fdf);
 	mlx_loop(fdf->mlx);
