@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 09:35:04 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/21 20:18:10 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/21 20:18:44 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,12 @@ static int	destroy(t_fdf *fdf)
 	return (0);
 }
 
-static int	expose(t_fdf *fdf)
-{
-	mlx_destroy_image(fdf->mlx, fdf->img.img);
-	render_map(fdf);
-	return (0);
-}
+// static int	expose(t_fdf *fdf)
+// {
+// 	mlx_destroy_image(fdf->mlx, fdf->img.img);
+// 	render_map(fdf);
+// 	return (0);
+// }
 
 /*  render whole map  */
 void	render_map(t_fdf *fdf)
