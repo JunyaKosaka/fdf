@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 09:35:04 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/21 18:21:50 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/21 18:22:48 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ static int	destroy(t_fdf *fdf)
 int	expose(t_fdf *fdf)
 {
 	mlx_destroy_image(fdf->mlx, fdf->img.img);
+	printf("52\n");
 	render_map(fdf);
 	return (0);
 }
