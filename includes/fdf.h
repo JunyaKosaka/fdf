@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 15:14:49 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/20 13:30:04 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/21 12:57:02 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ enum {
 	ON_MOUSERIGHT = 6,
 	ON_MOUSELEFT = 7,
 	ON_ESC = 65307,
+	ON_EXPOSE = 12,
 	ON_DESTROY = 17,
 };
 
