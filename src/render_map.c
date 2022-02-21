@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 09:35:04 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/21 18:20:49 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/21 18:21:20 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,4 @@ void	render_map(t_fdf *fdf)
 	mlx_key_hook(fdf->win, key_hook, fdf);
 	mlx_mouse_hook(fdf->win, mouse_hook, fdf);
 	mlx_loop(fdf->mlx);
-	return (0);
 }
