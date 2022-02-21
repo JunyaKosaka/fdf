@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 15:14:49 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/21 19:50:26 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/21 20:05:59 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ typedef struct s_vector
 	double	y;
 	double	z;
 	int		color;
+	int		origin_color;
 }	t_vector;
 
 /*  minilibx image data  */
@@ -86,6 +87,7 @@ enum {
 	ON_KEYG = 103,
 	ON_KEYB = 98,
 	ON_KEYO = 111,
+	ON_KEYA = 97,
 	ON_MOUSEDOWN = 4,
 	ON_MOUSEUP = 5,
 	ON_MOUSERIGHT = 6,
@@ -121,6 +123,7 @@ void		raise_altitude(t_fdf *fdf, double altitude);
 void		red(t_vector *vec, t_vector origin, double move);
 void		green(t_vector *vec, t_vector origin, double move);
 void		blue(t_vector *vec, t_vector origin, double move);
+void		reset_color(t_vector *vec, t_vector origin, double move);
 void		reset_center(t_vector *vec, t_vector origin, double move);
 t_vector	extend_vec(t_vector vec, double ratio);
 t_vector	sum_vec(t_vector a, t_vector b);
