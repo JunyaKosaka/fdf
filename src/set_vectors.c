@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 14:54:50 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/21 20:07:24 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/21 20:11:07 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ static void	set_z_and_color(t_vector *vec, char **elements, int num)
 	{
 		(*vec).color = hex_atoi(elements[1]);
 		(*vec).origin_color = (*vec).color;
+		printf("39\n");
 	}
 }
 
