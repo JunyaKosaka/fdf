@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 01:28:29 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/08 16:18:45 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/21 20:32:27 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	rotate_horizontally(t_vector *vec, t_vector origin, double radian)
 	dest.x += origin.x;
 	dest.y += origin.y;
 	dest.color = src.color;
+	dest.origin_color = src.origin_color;
 	*vec = dest;
 }
 
@@ -43,6 +44,7 @@ void	rotate_around_y_ordinate(t_vector *vec, t_vector origin, double radian)
 	dest.x += origin.x;
 	dest.y += origin.y;
 	dest.color = src.color;
+	dest.origin_color = src.origin_color;
 	*vec = dest;
 }
 
@@ -60,5 +62,6 @@ void	rotate_around_x_axis(t_vector *vec, t_vector origin, double radian)
 	dest.x += origin.x;
 	dest.y += origin.y;
 	dest.color = src.color;
+	dest.origin_color = src.origin_color;
 	*vec = dest;
 }
