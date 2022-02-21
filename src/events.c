@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 15:47:42 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/20 13:30:30 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/20 17:40:40 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	key_hook_sub(int keycode, t_fdf *fdf)
 	else if (keycode == ON_KEYS)
 		raise_altitude(fdf, 1 / ALTITUDE_RATE);
 	else if (keycode == ON_KEYC)
-		fdf->cabinet ^= 1;
+		fdf->cabinet ^= true;
 }
 
 int	key_hook(int keycode, t_fdf *fdf)
