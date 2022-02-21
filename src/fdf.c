@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 14:48:41 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/21 20:12:57 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/21 20:16:53 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	prepare_vecs(t_fdf *fdf, t_slist *file_map)
 			fdf->vecs[row_i][col_i].y = row_i;
 			fdf->vecs[row_i][col_i].color = WHITE;
 			fdf->vecs[row_i][col_i].origin_color = WHITE;
+			printf("%d\n", fdf->vecs[row_i][col_i].origin_color);
 			printf("38\n");
 		}
 	}
