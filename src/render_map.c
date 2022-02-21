@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 09:35:04 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/21 12:58:29 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/21 18:12:48 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static int	destroy(t_fdf *fdf)
 }
 
 /*  render whole map  */
-void	render_map(t_fdf *fdf)
+int	render_map(t_fdf *fdf)
 {
 	int			row_i;
 	int			col_i;
@@ -69,4 +69,5 @@ void	render_map(t_fdf *fdf)
 	mlx_key_hook(fdf->win, key_hook, fdf);
 	mlx_mouse_hook(fdf->win, mouse_hook, fdf);
 	mlx_loop(fdf->mlx);
+	return (0);
 }
