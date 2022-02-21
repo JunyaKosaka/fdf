@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 09:35:33 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/20 09:35:34 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/21 18:34:04 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static bool	render_dot(t_vector vec, t_data *img, bool is_cabinet)
 }
 
 /*  render line between two vectors  */
-void	render_line(t_data *img, t_vector start, t_vector end, bool cabinet)
+static void	render_line(t_data *img, t_vector start, t_vector end, bool cabinet)
 {
 	double		ratio;
 	double		diff;
@@ -58,4 +58,15 @@ void	render_line(t_data *img, t_vector start, t_vector end, bool cabinet)
 		render_dot(target, img, cabinet);
 		ratio += (double)DELTA_RATIO / diff;
 	}
+}
+
+void	render_two_lines(t_fdf *fdf, t_data *img, int row_i, int col_i)
+{
+	t_vector	vec;
+
+	vec = fdf->vecs[row_i][col_i];
+	if (row_i)
+		render_line(img, vec, fdf->vecs[row_i - 1][col_i], fdf->cabinet);
+	if (col_i)
+		render_line(img, vec, fdf->vecs[row_i][col_i - 1], fdf->cabinet);
 }

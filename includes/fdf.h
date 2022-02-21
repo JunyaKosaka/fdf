@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 15:14:49 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/21 18:31:15 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/21 18:36:16 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
 # define BLUE 0x0000FF
 # define STR_COLOR 0xEEAAAA
 # define NO_EVENT_MASK 0
-# define EXPOSURE_MASK 1<<15
+# define EXPOSURE_MASK (1LL<<15)
 
 /*  vector components include color  */
 typedef struct s_vector
@@ -104,8 +104,7 @@ void		free_2d_arr(void **arr, int map_col);
 void		free_fdf(t_fdf *fdf, t_slist *file_map, bool is_error);
 void		init_vecs(t_fdf *fdf);
 void		render_map(t_fdf *fdf);
-void		render_line(t_data *img, t_vector start, t_vector end, \
-						bool is_cabinet);
+void		render_two_lines(t_fdf *fdf, t_data *img, int row_i, int col_i);
 t_vector	get_internal_vector(t_vector start, t_vector end, double ratio);
 int			mouse_hook(int button, int x, int y, t_fdf *fdf);
 int			key_hook(int keycode, t_fdf *fdf);
