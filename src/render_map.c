@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 09:35:04 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/21 20:19:43 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/21 20:37:24 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,12 @@ static int	destroy(t_fdf *fdf)
 	return (0);
 }
 
-// static int	expose(t_fdf *fdf)
-// {
-// 	mlx_destroy_image(fdf->mlx, fdf->img.img);
-// 	render_map(fdf);
-// 	return (0);
-// }
+static int	expose(t_fdf *fdf)
+{
+	mlx_destroy_image(fdf->mlx, fdf->img.img);
+	render_map(fdf);
+	return (0);
+}
 
 /*  render whole map  */
 void	render_map(t_fdf *fdf)
@@ -60,8 +60,8 @@ void	render_map(t_fdf *fdf)
 	}
 	mlx_put_image_to_window(fdf->mlx, fdf->win, fdf->img.img, 0, 0);
 	put_description(fdf);
-	mlx_hook(fdf->win, ON_DESTROY, ON_DESTROY, destroy, fdf);
-	// mlx_hook(fdf->win, ON_EXPOSE, EXPOSURE_MASK, expose, fdf);
+	mlx_hook(fdf->win, ON_DESTROY, NO_EVENT_MASK, destroy, fdf);
+	mlx_hook(fdf->win, ON_EXPOSE, EXPOSURE_MASK, expose, fdf);
 	mlx_key_hook(fdf->win, key_hook, fdf);
 	mlx_mouse_hook(fdf->win, mouse_hook, fdf);
 	mlx_loop(fdf->mlx);
