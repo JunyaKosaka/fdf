@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 15:14:49 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/21 18:36:16 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/21 19:50:26 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
 # define BLUE 0x0000FF
 # define STR_COLOR 0xEEAAAA
 # define NO_EVENT_MASK 0
-# define EXPOSURE_MASK (1LL<<15)
+# define EXPOSURE_MASK 32768
 
 /*  vector components include color  */
 typedef struct s_vector
