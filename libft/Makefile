@@ -6,7 +6,7 @@
 #    By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/08 15:01:29 by jkosaka           #+#    #+#              #
-#    Updated: 2022/02/09 11:00:14 by jkosaka          ###   ########.fr        #
+#    Updated: 2022/02/28 17:45:07 by jkosaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,9 +27,9 @@ BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
 	ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c \
 	ft_lstmap.c
 
-OBJS = $(SRCS:%.c=%.o)
+OBJS = $(SRCS:.c=.o)
 
-BNS_OBJS = $(BONUS:%.c=%.o)
+BNS_OBJS = $(BONUS:.c=.o)
 
 FLAGS = -Wall -Wextra -Werror
 

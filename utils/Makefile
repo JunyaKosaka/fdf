@@ -6,7 +6,7 @@
 #    By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/05 16:52:55 by jkosaka           #+#    #+#              #
-#    Updated: 2022/02/09 22:00:27 by jkosaka          ###   ########.fr        #
+#    Updated: 2022/02/28 17:44:38 by jkosaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ HEADERFILE := ../includes/utils.h
 SRCS := error_handler.c get_next_line.c get_next_line_utils.c \
 	slist.c fdf_split.c hex_atoi.c count_words.c math.c \
 
-OBJS := $(SRCS:%.c=%.o)
+OBJS := $(SRCS:.c=.o)
 
 LIBFT := ../libft/libft.a
 
@@ -26,7 +26,7 @@ CC := cc
 CFLAGS := -Wall -Wextra -Werror
 
 $(NAME) : $(OBJS)
-	make $(FLAGS) -C ../libft
+	make -C ../libft
 	cp $(LIBFT) $(NAME)
 	ar rc $@ $^
 

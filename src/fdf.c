@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 14:48:41 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/02/21 20:37:02 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/02/28 17:43:44 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,10 @@ void	fdf(char *filename)
 	slist_clear(&file_map);
 	init_vecs(&fdf);
 	fdf.mlx = mlx_init();
+	if (!fdf.mlx)
+		free_fdf(&fdf, NULL, true);
 	fdf.win = mlx_new_window(fdf.mlx, WIN_SIZE, WIN_SIZE, " FDF ");
+	if (!fdf.win)
+		free_fdf(&fdf, NULL, true);
 	render_map(&fdf);
 }

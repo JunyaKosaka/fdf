@@ -6,17 +6,19 @@
 #    By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/05 16:47:09 by jkosaka           #+#    #+#              #
-#    Updated: 2022/02/20 13:09:26 by jkosaka          ###   ########.fr        #
+#    Updated: 2022/02/28 17:45:42 by jkosaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := ../fdf
 
+HEADERFILE := ../includes/fdf.h
+
 SRCS := fdf.c get_file_map.c set_vectors.c free.c init_vectors.c \
 	update_vecs.c render_map.c events.c get_internal_vector.c \
 	vector_utils.c rotate_vector.c render_line.c color.c \
 
-OBJS := $(SRCS:%.c=%.o)
+OBJS := $(SRCS:.c=.o)
 
 LIBUTIL := ../utils/libutil.a
 
@@ -28,11 +30,11 @@ CFLAGS := -Wall -Wextra -Werror
 
 MAND := main.c
 
-MAND_OBJS := $(MAND:%.c=%.o)
+MAND_OBJS := $(MAND:.c=.o)
 
 BONUS := main_bonus.c
 
-BNS_OBJS := $(BONUS:%.c=%.o)
+BNS_OBJS := $(BONUS:.c=.o)
 
 ifdef WITH_BONUS
 OBJS += $(BNS_OBJS)
@@ -50,7 +52,7 @@ all : $(NAME)
 bonus : all
 	make WITH_BONUS=1
 
-.c.o :
+%.o : %.c $(HEADERFILE)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean :
